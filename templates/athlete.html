@@ -21,11 +21,10 @@
     <title>Athlete Profile - {{ athlete_name }}</title>
 </head>
 <body>
-
     <header>
         <a href="index.html" class="nav-home-button">Home</a>
         
-        <button class="dark-mode-toggle" onclick="darkModeToggle()">Toggle Dark / Light Mode</button>
+        <button class="dark-mode-toggle" onclick="darkModeToggle()">Toggle Dark Mode</button>
 
         <script>
         function darkModeToggle() {
@@ -47,8 +46,9 @@
 
 <main>
     <section class="profile-header">
+        
         <div class="profile-picture">
-            <img src="img/profile-placeholder.png" alt="Profile picture">
+            <img src="{{ athlete_photo }}" alt="Profile picture">
         </div>
         <div class="profile-details">
             <h1>{{ athlete_name }}</h1>

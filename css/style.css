@@ -85,14 +85,19 @@ table {
 th, td, li {
     padding: 10px;
     text-align: center;
-    border: none;
     font-size: 1.1em;
     color: var(--text-color);
 }
 
-.season-box tr:nth-child(1) {
-    border-bottom: var(--07);
+/* add dividers */
+tr:not(last-of-type) {
+    border-bottom: 1px solid var(--15);
 }
+
+h1 {
+    color: var(--text-color);
+}
+
 
 h2 {
     background-color: var(--07);
@@ -138,6 +143,7 @@ h2 {
 }
 
 .search-form input {
+    background-color: var(--background-color);
     padding: 10px;
     padding-right: 40px; /* Leave space for the icon on the right */
     border: 1px solid var(--07);

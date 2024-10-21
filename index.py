@@ -22,7 +22,14 @@ def extract_athlete_info(data):
     athlete_id = data[1][0] if len(data) > 1 else "Unknown"
     athlete_link = f"https://www.athletic.net/athlete/{athlete_id}/cross-country/high-school"
     athlete_grade = next((row[2] for row in data if len(row) > 2 and row[2].isdigit()), "N/A")
-    return athlete_name, athlete_id, athlete_link, athlete_grade
+    
+    try:
+        with open(f"images/profiles/{athlete_id}.jpg", 'r') as file:
+            athlete_photo = f"images/profiles/{athlete_id}.jpg"
+    except:
+        athlete_photo = f"images/default_image.jpg"
+
+    return athlete_name, athlete_id, athlete_link, athlete_grade, athlete_photo
 
 # Load CSV data for athletes
 adrienne_data = load_csv_data(adrienne_csv)
@@ -30,9 +37,9 @@ alex_data = load_csv_data(alex_csv)
 amir_data = load_csv_data(amir_csv)
 
 # Extract athlete info
-adrienne_name, adrienne_id, adrienne_link, adrienne_grade = extract_athlete_info(adrienne_data)
-alex_name, alex_id, alex_link, alex_grade = extract_athlete_info(alex_data)
-amir_name, amir_id, amir_link, amir_grade = extract_athlete_info(amir_data)
+adrienne_name, adrienne_id, adrienne_link, adrienne_grade, adrienne_photo = extract_athlete_info(adrienne_data)
+alex_name, alex_id, alex_link, alex_grade, alex_photo = extract_athlete_info(alex_data)
+amir_name, amir_id, amir_link, amir_grade, amir_photo = extract_athlete_info(amir_data)
 
 # Extract season records for each athlete
 def extract_season_records(data):
@@ -150,6 +157,7 @@ athlete_template = env.get_template('athlete.html')
 athlete_html_adrienne = athlete_template.render(
     athlete_name=adrienne_name,
     athlete_grade=adrienne_grade,
+    athlete_photo=adrienne_photo,
     athlete_school="Ann Arbor Skyline",
     season_year="2024",
     races_2024_table=adrienne_races_table_2024,  # Now passing the races table
@@ -163,6 +171,7 @@ with open("athlete-adrienne.html", "w") as f:
 athlete_html_alex = athlete_template.render(
     athlete_name=alex_name,
     athlete_grade=alex_grade,
+    athlete_photo=alex_photo,
     athlete_school="Ann Arbor Skyline",
     season_year="2024",
     races_2024_table=alex_races_table_2024,  # Now passing the races table
@@ -176,6 +185,7 @@ with open("athlete-alex.html", "w") as f:
 athlete_html_amir = athlete_template.render(
     athlete_name=amir_name,
     athlete_grade=amir_grade,
+    athlete_photo=amir_photo,
     athlete_school="Ann Arbor Skyline",
     season_year="2024",
     races_2024_table=amir_races_table_2024,  # Now passing the races table
