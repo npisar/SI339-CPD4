@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/reset.css">
+   <link rel="stylesheet" href="css/style.css">
+   <title>{{ site_title }}</title>
+   <!-- Font Awesome CDN for the search icon -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="nav-home-button" id="top">HOME</a>
+
+        <!-- Accessible search form with hidden label and icon button -->
+        <form action="#" method="get" class="search-form">
+            <label for="search-input" class="sr-only">Search Athlete</label> <!-- Screen-reader only label -->
+            <input type="text" id="search-input" placeholder="Search Athlete" name="q">
+            
+            <button type="submit" aria-label="Search">
+                <i class="fas fa-search"></i> <!-- Font Awesome search icon -->
+            </button>
+        </form>
+    </header>
+
+    <main>
+        <h1>{{ page_heading }}</h1>
+        <section class="meet-results">
+            <div class="season-box">
+                <h2>Top 10 Men</h2>
+                <table>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Time</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><a href="athlete-alex.html">{{ mens_top10[0]['Name'] }}</a></td>
+                        <td>{{ mens_top10[0]['Time'] }}</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><a href="athlete-amir.html">{{ mens_top10[1]['Name'] }}</a></td>
+                        <td>{{ mens_top10[1]['Time'] }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="season-box">
+                <h2>Top 10 Women</h2>
+                <table>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Time</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><a href="athlete-adrienne.html">{{ womens_top10[0]['Name'] }}</a></td>
+                        <td>{{ womens_top10[0]['Time'] }}</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer>
+        <p>Created by Kaelyn Lin, Nick Pisarczyk, and Aditya Tambe for SI 339</p>
+        <a href="#top">Back to top</a>
+    </footer>
+
+</body>
+</html>
