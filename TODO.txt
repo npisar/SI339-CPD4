@@ -1,0 +1,9 @@
+1. need to update table styling (maybe done?)
+
+2. need to add dropdowns for tables / sections
+
+3. make a high contrast mode
+
+4. add icons to placements, season records, races, notes
+
+5. add ann arbor skyline graphics or colors
