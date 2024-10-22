@@ -1,8 +1,8 @@
 /* variables */
 :root{
-    --text-color: #000000;
-    --background-color: #f5f9fc;
-    --tertiary-color: #67bae7;
+    --primary-color: #000000;
+    --surface-color: #f5f9fc;
+    --secondary-color: #67bae7;
     --07: rgba(0, 0, 0, 0.07);
     --09: rgba(0, 0, 0, 0.09);
     --12: rgba(0, 0, 0, 0.12);
@@ -11,9 +11,9 @@
 
 /* dark mode */
 .dark-mode {
-    --text-color: #ffffff;
-    --background-color: #121212;
-    --tertiary-color: #75b7df;
+    --primary-color: #ffffff;
+    --surface-color: #121212;
+    --secondary-color: #67bae7;
     --07: rgba(255, 255, 255, 0.07);
     --09: rgba(255, 255, 255, 0.09);
     --12: rgba(255, 255, 255, 0.12);
@@ -31,27 +31,46 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--background-color);
+    background-color: var(--surface-color);
 /
 }
 
 header {
+    max-width: 100%;
     position: sticky;
-    background-color: var(--tertiary-color);
+    top: 0;
+    background-color: var(--secondary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     padding: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* footer */
+footer {
+    margin-top: 4em;
+    justify-content: center;
+    text-align: center;
+}
+
+a {
+    visibility: visible;
+    text-decoration: underline;
+    width: 50%;
+}
+
+footer a{
+    cursor: pointer;
+}
+
 h1 {
-    color: var(--text-color);
+    color: var(--primary-color);
 }
 
 p, a {
-    text-decoration: none;
     font-weight: 600;
-    color: var(--text-color);
+    color: var(--primary-color);
 }
 
 .fullwidth {
@@ -60,6 +79,8 @@ p, a {
     width: 100%;
     background-color: var(--09);   
     line-height: 1;
+    padding-left: 1em;
+    padding-right: 1em;
     padding-top: .8em;
     padding-bottom: 1.6em;
     margin-top: 1em;
@@ -70,12 +91,12 @@ p, a {
 /* ############################################
 ###############################################
 ############################################ */
-/* buttons / links */
+/* buttons */
 button, .nav-home-button{
     border: none;
     height: 3em;
-    background: var(--background-color);
-    color: var(--text-color);
+    background: var(--surface-color);
+    color: var(--primary-color);
     font-weight: 600;
     padding: 15px 15px;
     text-align: center;
@@ -89,8 +110,8 @@ button, .nav-home-button{
 .photos-button {
     margin-top: 10px;
     padding: 8px 12px;
-    background-color: var(--tertiary-color);
-    color: var(--text-color);
+    background-color: var(--secondary-color);
+    color: black;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -98,29 +119,14 @@ button, .nav-home-button{
 
 button:hover {
     text-decoration: none;
-    background-color: var(--text-color);
-    color: var(--background-color);
+    background-color: var(--primary-color);
+    color: var(--surface-color);
 }
 
 /* smooth transition */
 button, .nav-home-button, .backToTop {
-    transition: background-color 0.3s ease;
+    transition: surface-color 0.3s ease;
 }
-
-footer {
-    margin-top: 4em;
-    justify-content: center;
-    text-align: center;
-}
-
-a {
-    visibility: visible;
-    text-decoration: underline;
-    width: 50%;
-}
-
-
-
 
 /* ############################################
 ###############################################
@@ -131,14 +137,26 @@ table {
     border-collapse: collapse;
     margin-top: 10px;
     margin-bottom: 20px;
+    overflow: hidden;
 }
 
 th, td, li {
     padding: 10px;
     text-align: center;
     font-size: 1.1em;
-    color: var(--text-color);
+    color: var(--primary-color);
 }
+
+tr:nth-of-type(even) {
+    background-color: var(--09);
+}
+tr:nth-of-type(odd) {
+    background-color: var(--07);
+}
+tr:nth-child(1) {
+    background-color: var(--15);
+}
+
 
 /* add dividers */
 tr:not(last-of-type) {
@@ -146,14 +164,15 @@ tr:not(last-of-type) {
 }
 
 h2 {
-    background-color: var(--07);
+    background-color: var(--secondary-color);
     margin: 0;
     padding: 15px;
     border-bottom: 1px solid var(--15);
+    border-radius: 0.5em 0.5em 0 0;
     width: 100%;
     box-sizing: border-box;
     font-weight: 600;
-    color: var(--text-color);
+    color: black;
 }
 
 .data .races-year, .season-records, .season-notes, .season-box {
@@ -180,7 +199,7 @@ h2 {
 }
 
 .search-form input {
-    background-color: var(--background-color);
+    background-color: var(--surface-color);
     width: 46.5vw;
     padding: 10px;
     padding-right: 2em;
@@ -198,7 +217,7 @@ h2 {
     background: none;
     border: none;
     cursor: pointer;
-    color: var(--text-color);
+    color: var(--primary-color);
     font-size: 1.2em;
     padding: 0;
     outline: none;
@@ -216,7 +235,7 @@ h2 {
 ############################################ */
 /* Main content area */
 main {
-    width: 100vw;
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
 }
@@ -233,7 +252,7 @@ main {
     grid-template-columns: 150px 1fr;
     align-items: center;
     gap: 20px;
-    padding: 20px 0;
+    padding: 20px 0px;
     border-bottom: 1px solid var(--07);
 }
 
@@ -262,7 +281,7 @@ main {
 .profile-details p {
     margin-top: 5px;
     font-size: 1.2em;
-    color: var(--text-color);
+    color: var(--primary-color);
 }
 
 .photos-button:hover {
