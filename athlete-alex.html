@@ -57,8 +57,16 @@
         </div>
     </section>
 
-    <section class="meet-results">
-        <div class="meet-year season-box">
+    <section class="data">
+        <script>
+        function expandTable() {
+           var element = document.body;
+           element.classList.toggle(".active");
+        }
+        </script>
+        
+        <button class="table-animation" onclick="expandTable()">Expand Data</button>
+        <div class="races-year">
             <h2>2024 Races</h2>
             <table>
 <tr>
@@ -72,7 +80,8 @@
 </table>
 
         </div>
-        <div class="season-records season-box">
+        <button class="table-animation" onclick="expandTable()">Expand Data</button>
+        <div class="season-records">
             <h2>Season Records</h2>
             <table>
 <tr>
@@ -103,7 +112,8 @@
 </table>
 
         </div>
-        <div class="season-notes season-box">
+        <button class="table-animation" onclick="expandTable()">Expand Data</button>
+        <div class="season-notes">
             <h2>Season Notes</h2>
             <ul>
                 <li>2024: Best season performance</li>
