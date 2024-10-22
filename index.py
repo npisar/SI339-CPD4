@@ -196,4 +196,4 @@ with open("athlete-amir.html", "w") as f:
     f.write(athlete_html_amir)
 
 # Confirm completion
-print('HTML pages generated for index, Adrienne Stewart, Alex Nemecek, and Amir Abston')
+print(f'HTML pages generated for index, Adrienne Stewart, Alex Nemecek, and Amir Abston\n-------------\n\n')

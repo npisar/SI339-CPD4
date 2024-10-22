@@ -58,24 +58,14 @@
     </section>
 
     <section class="data">
-        <script>
-        function expandTable() {
-           var element = document.body;
-           element.classList.toggle(".active");
-        }
-        </script>
-        
-        <button class="table-animation" onclick="expandTable()">Expand Data</button>
         <div class="races-year">
             <h2>{{ season_year }} Races</h2>
             {{ races_2024_table | safe }}
         </div>
-        <button class="table-animation" onclick="expandTable()">Expand Data</button>
         <div class="season-records">
             <h2>Season Records</h2>
             {{ all_records_table | safe }}
         </div>
-        <button class="table-animation" onclick="expandTable()">Expand Data</button>
         <div class="season-notes">
             <h2>Season Notes</h2>
             <ul>
@@ -85,6 +75,20 @@
     </section>
 
 </main>
+
+<footer>
+    <script>
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
+    <a onclick="topFunction()" class="backToTop">Back to Top</a>
+    <div class="fullwidth">
+        <p>Page Designed by Kaelyn Lin, Nick Pisarczyk, and Aditya Tambe</p>
+        <p>Updated for CPD3 by Nick Pisarczyk</p>
+    </div>
+</footer>
 
 </body>
 </html>
