@@ -20,11 +20,6 @@
    <title>Top 10 Athlete Rankings</title>
 </head>
 <body>
-    <script>
-        if(document.cookie){
-            element.classList.toggle("dark-mode")
-        }
-    </script>
     <header>
        <a href="index.html" class="nav-home-button">Home</a>
       
@@ -45,7 +40,7 @@
        <!-- Accessible search form with hidden label and icon button -->
        <form action="#" method="get" class="search-form">
            <label for="search-input" class="sr-only">Search Athlete</label>
-           <input type="text" id="search-input" placeholder="Search Athlete" name="q">
+           <input type="text" id="search-input" placeholder="Search Athlete (not currently functional)" name="q">
            <button type="submit" aria-label="Search">
                <i class="fas fa-search"></i>
            </button>
@@ -55,8 +50,8 @@
    <main>
        <h1>{{ page_heading }}</h1>
        <section class="meet-results">
-           <div class="season-box">
-               <h2>Top 10 Men's Times</h2>
+           <details class="season-box">
+               <summary>Top 10 Men's Times</summary>
                <table>
                    <tr>
                        <th>Rank</th>
@@ -66,14 +61,14 @@
                    {% for index in range(mens_top10 | length) %}
                    <tr>
                        <td>{{ index + 1 }}</td>
-                       <td><a href="athletes_html/mens_team/athlete-{{ mens_top10[index]['Name'].split()[0].lower() }}.html">{{ mens_top10[index]['Name'] }}</a></td>
+                       <td><a href="athletes_html/mens_team/athlete-{{ mens_top10[index]['Name'].replace(' ', '-').lower() }}.html">{{ mens_top10[index]['Name'] }}</a></td>
                        <td>{{ mens_top10[index]['Time'] }}</td>
                    </tr>
                    {% endfor %}
                </table>
-           </div>
-           <div class="season-box">
-               <h2>Top 10 Women's Times</h2>
+            </details>
+           <details class="season-box">
+               <summary>Top 10 Women's Times</summary>
                <table>
                    <tr>
                        <th>Rank</th>
@@ -83,12 +78,12 @@
                    {% for index in range(womens_top10 | length) %}
                    <tr>
                        <td>{{ index + 1 }}</td>
-                       <td><a href="athletes_html/womens_team/athlete-{{ womens_top10[index]['Name'].split()[0].lower() }}.html">{{ womens_top10[index]['Name'] }}</a></td>
+                       <td><a href="athletes_html/womens_team/athlete-{{ womens_top10[index]['Name'].replace(' ', '-').lower() }}.html">{{ womens_top10[index]['Name'] }}</a></td>
                        <td>{{ womens_top10[index]['Time'] }}</td>
                    </tr>
                    {% endfor %}
                </table>
-           </div>
+           </details>
        </section>
    </main>
   

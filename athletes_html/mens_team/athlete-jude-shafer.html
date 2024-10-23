@@ -1,63 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-   <!-- link to stylesheets -->
-   <link rel="stylesheet" href="../../css/reset.css">
-   <link rel="stylesheet" href="../../css/style.css">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- link to stylesheets -->
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/style.css">
 
-   <!-- Font Awesome CDN -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-   <script src="https://kit.fontawesome.com/c6dd4f98de.js" crossorigin="anonymous"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://kit.fontawesome.com/c6dd4f98de.js" crossorigin="anonymous"></script>
 
-   <!-- Google font -->
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-   <title>Athlete Profile - Jude Shafer</title>
-</head>
-<body>
-   <header>
-       <a href="../../index.html" class="nav-home-button">Home</a>
-      
-       <button class="dark-mode-toggle" onclick="darkModeToggle()">Toggle Dark Mode</button>
+    <title>Athlete Profile - Jude Shafer</title>
+    </head>
+    <body>
+        <header>
+        <a href="../../index.html" class="nav-home-button">Home</a>
+        
+        <button class="dark-mode-toggle" onclick="darkModeToggle()">Toggle Dark Mode</button>
 
-       <script>
-       function darkModeToggle() {
-          var element = document.body;
-          element.classList.toggle("dark-mode");
-       }
-       </script>
+        <script>
+        function darkModeToggle() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+        }
+        </script>
 
-       <!-- Accessible search form with hidden label and icon button -->
-       <form action="#" method="get" class="search-form">
-           <label for="search-input" class="sr-only">Search Athlete</label>
-           <input type="text" id="search-input" placeholder="Search Athlete" name="q">
-           <button type="submit" aria-label="Search">
-               <i class="fas fa-search"></i>
-           </button>
-       </form>
-   </header>
+        <!-- Accessible search form with hidden label and icon button -->
+        <form action="#" method="get" class="search-form">
+            <label for="search-input" class="sr-only">Search Athlete</label>
+            <input type="text" id="search-input" placeholder="Search Athlete (not currently functional)" name="q">
+            <button type="submit" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+    </header>
 
-   <main>
-       <section class="profile-header">
-           <div class="profile-picture">
-               <img src="../../../images/profiles/23349716.jpg" alt="Profile picture of Jude Shafer">
-           </div>
-           <div class="profile-details">
-               <h1>Jude Shafer</h1>
-               <p>9th Gradeth Grade, Ann Arbor Skyline</p>
-               <a href="https://www.athletic.net/athlete/23349716/cross-country/high-school" class="athletic-link-button" target="_blank" rel="noopener noreferrer">Athletic.net page</a>
-           </div>
-       </section>
+        <main>
+            <section class="profile-header">
+                <div class="profile-picture">
+                    <img src="../../../images/profiles/23349716.jpg" alt="Profile picture of Jude Shafer">
+                </div>
+                <div class="profile-details">
+                    <h1>Jude Shafer</h1>
+                    <p>9th Grade, Ann Arbor Skyline</p>
+                    <a href="https://www.athletic.net/athlete/23349716/cross-country/high-school" class="athletic-link-button" target="_blank" rel="noopener noreferrer">Athletic.net page</a>
+                </div>
+            </section>
 
-       <section class="data">
-           <div class="races-year">
-               <h2>2024 Races</h2>
-               <table>
+            <section class="data">
+                <details class="races-year">
+                    <summary>All Races</summary>
+                    <table>
 <tr>
 <th>Place</th>
 <th>Time</th>
@@ -68,10 +68,10 @@
 <tr><td>255 </td><td>23:14.4PR</td><td>Sep 14</td><td>56th Holly-Duane Raffin Festival of Races (D1 JV Boys)</td></tr>
 </table>
 
-           </div>
-           <div class="season-records">
-               <h2>Season Records</h2>
-               <table>
+                </details>
+                <details class="season-records">
+                    <summary>Season Records</summary>
+                    <table>
 <tr>
 <th>Year</th>
 <th>Grade</th>
@@ -84,30 +84,28 @@
 </tr>
 </table>
 
-           </div>
-           <div class="season-notes">
-               <h2>Season Notes</h2>
-               <ul>
-                   <li>2024: Best season performance</li>
-               </ul>
-           </div>
-       </section>
-   </main>
+                </details>
+                <details class="season-notes">
+                    <summary>Season Notes</summary>
+                        <ul><li>2024: Best season performance</li></ul>
+                </details>
+            </section>
+        </main>
 
-   <footer>
-       <a onclick="topFunction()" class="backToTop">Back to Top</a>
-       <div class="fullwidth">
-           <p>Designed by:</p>
-           <p>Kaelyn Lin, Nick Pisarczyk, and Aditya Tambe</p>
-           <p>Updated for CPD3 by Nick Pisarczyk</p>
-       </div>
-   </footer>
+    <footer>
+        <a onclick="topFunction()" class="backToTop">Back to Top</a>
+        <div class="fullwidth">
+            <p>Designed by:</p>
+            <p>Kaelyn Lin, Nick Pisarczyk, and Aditya Tambe</p>
+            <p>Updated for CPD3 by Nick Pisarczyk</p>
+        </div>
+    </footer>
 
-   <script>
-       function topFunction() {
-           document.body.scrollTop = 0;
-           document.documentElement.scrollTop = 0;
-       }
-   </script>
-</body>
-</html>
+    <script>
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    </body>
+    </html>

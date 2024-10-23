@@ -100,6 +100,9 @@ p, a {
     justify-items: left;
 }
 
+*:focus {
+    border: 2px solid var(--primary-color)
+}
 
 /* ############################################
 ###############################################
@@ -143,15 +146,16 @@ button, .nav-home-button{
     color: var(--secondary-color);
 } */
 
+/* smooth transition */
+button, .nav-home-button, .backToTop {
+    transition: 0.25s color ease;
+    transition: 0.25s background-color ease;
+}
+
 button:hover, .nav-home-button:hover {
     text-decoration: none;
     background-color: var(--primary-color);
     color: var(--surface-color);
-}
-
-/* smooth transition */
-button, .nav-home-button, .backToTop {
-    transition: surface-color 0.5s ease;
 }
 
 /* ############################################
@@ -187,16 +191,30 @@ tr:not(last-of-type) {
     border-bottom: 1px solid var(--15);
 }
 
-h2 {
+details a {
+    text-decoration: underline;
+    text-decoration-thickness: 0.05em;
+}
+
+details summary {
     background-color: var(--secondary-color);
     margin: 0;
     padding: 15px;
     border-bottom: 1px solid var(--15);
-    border-radius: 0.5em 0.5em 0 0;
+    border-radius: 0.5em 0.5em 0.5em 0.5em;
     width: 100%;
     box-sizing: border-box;
     font-weight: 600;
     color: white;
+    text-align: center;
+    
+    transition: 0.25s color ease;
+    transition: 0.25s background-color ease;
+}
+
+details summary:hover {
+    color: var(--surface-color);
+    background-color: var(--primary-color);
 }
 
 .data .races-year, .season-records, .season-notes, .season-box {
@@ -205,6 +223,11 @@ h2 {
     padding: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     border-radius: 10px;
+}
+
+.season-records {
+    text-align: center;
+    padding-bottom: 1em;
 }
 
 .season-box {
@@ -224,6 +247,7 @@ h2 {
 
 .search-form input {
     background-color: var(--surface-color);
+    color: var(--primary-color);
     width: 46.5vw;
     padding: 10px;
     padding-right: 2em;
@@ -293,13 +317,6 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.profile-details h2 {
-    margin: 0;
-    font-size: 1.8em;
-    color: #1e445d;
-    font-weight: 600;
 }
 
 .profile-details p {

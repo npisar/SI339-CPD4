@@ -27,7 +27,10 @@ def extract_athlete_info(data):
     athlete_name = data[0][0] if len(data[0]) > 0 else "Unknown"
     athlete_id = data[1][0] if len(data) > 1 else "Unknown"
     athlete_link = f"https://www.athletic.net/athlete/{athlete_id}/cross-country/high-school"
-    athlete_grade = next((row[2] for row in data if len(row) > 2 and row[2].isdigit()), "N/A")
+    
+    # Find all valid grades and select the highest one
+    grades = [int(row[2]) for row in data if len(row) > 2 and row[2].isdigit()]
+    athlete_grade = max(grades, default="N/A")  # Get highest grade or "N/A" if no valid grades found
     
     try:
         with open(f"images/profiles/{athlete_id}.jpg", 'r') as file:
@@ -72,13 +75,13 @@ def extract_races(data):
     return races
 
 # Filter 2024 races
-def filter_2024_races(races):
-    races_2024 = []
-    for race in races:
-        if "Jul" in race["Date"][0:3]:
-            break
-        races_2024.append(race)
-    return races_2024
+# def filter_2024_races(races):
+#     races_2024 = []
+#     for race in races:
+#         if "Jul" in race["Date"][0:3]:
+#             break
+#         races_2024.append(race)
+#     return races_2024
 
 # Generate dynamic HTML table for races
 def races_table_maker(races_list):
@@ -133,28 +136,33 @@ def process_team_csvs(team_dir, team_output_dir):
             if athlete_grade == "N/A":
                 athlete_grade = "Athlete grade not found"
             else:
-                athlete_grade+= "th Grade"
+                athlete_grade = str(athlete_grade)
+                athlete_grade += "th Grade"
+
+            athlete_filename = f"athlete-{(athlete_name.split()[0]+"-"+athlete_name.split()[1]).lower()}"
+            # print(f"athlete_filename is {athlete_filename}")
 
             # Extract records and races
             athlete_records = extract_season_records(data)
             athlete_races = extract_races(data)
-            athlete_races_2024 = filter_2024_races(athlete_races)
+            # athlete_races_2024 = filter_2024_races(athlete_races)
             
             # Create tables for records and races
             athlete_table = table_maker(athlete_records)
-            athlete_races_table_2024 = races_table_maker_without_name(athlete_races_2024)
+            athlete_races_table = races_table_maker_without_name(athlete_races)
             
             # Render athlete's HTML
             athlete_template = env.get_template('athlete.html')
             athlete_html = athlete_template.render(
                 athlete_name=athlete_name,
+                athlete_filename = athlete_filename,
                 athlete_grade=athlete_grade,
                 athlete_photo=athlete_photo,
                 athlete_id=athlete_id,
                 athlete_link=athlete_link,
                 athlete_school="Ann Arbor Skyline",
                 season_year="2024",
-                races_2024_table=athlete_races_table_2024,
+                races_table=athlete_races_table,
                 all_records_table=athlete_table,
                 season_notes="<li>2024: Best season performance</li>"
             )
@@ -162,7 +170,7 @@ def process_team_csvs(team_dir, team_output_dir):
             # Save HTML file
             # print(f"athlete_name is {athlete_name}")
             # print(f"{athlete_name}'s grade is {athlete_grade}")
-            output_path = os.path.join(team_output_dir, f"athlete-{(athlete_name.split()[0]+"-"+athlete_name.split()[1]).lower()}.html")
+            output_path = os.path.join(team_output_dir, f"{athlete_filename}.html")
             with open(output_path, "w") as f:
                 f.write(athlete_html)
 
