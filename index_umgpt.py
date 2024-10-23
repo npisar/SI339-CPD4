@@ -31,9 +31,9 @@ def extract_athlete_info(data):
     
     try:
         with open(f"images/profiles/{athlete_id}.jpg", 'r') as file:
-            athlete_photo = f"images/profiles/{athlete_id}.jpg"
+            athlete_photo = f"../../../images/profiles/{athlete_id}.jpg"
     except:
-        athlete_photo = f"images/default_image.jpg"
+        athlete_photo = f"../../../images/default_image.jpg"
 
     return athlete_name, athlete_id, athlete_link, athlete_grade, athlete_photo
 
@@ -41,7 +41,6 @@ def extract_athlete_info(data):
 def extract_season_records(data):
     season_records = []
     for row in data:
-        # Ensure that row[1] and row[2] contain valid integers
         if len(row) > 3 and row[1].isdigit() and row[2].isdigit():
             season_record = {
                 "Year": int(row[1]),
@@ -55,37 +54,45 @@ def extract_season_records(data):
 def extract_races(data):
     races = []
     for row in data:
-        # Skip rows that don't have enough data or are headers
         if len(row) < 6 or row[0] == "Name":
             continue
         
-        # Check if row[1] can be converted to an integer
         try:
             if int(row[1]) < 1999:  # Assuming this is the year column
                 race_dict = {
                     "Place": row[1],
                     "Time": row[3],
                     "Date": row[4],
-                    "Meet": row[5]
+                    "Meet": row[5],
+                    "Name": row[0]  # Include the athlete's name here
                 }
                 races.append(race_dict)
         except ValueError:
-            # If row[1] is not a valid integer, skip this row
             continue
     return races
-
 
 # Filter 2024 races
 def filter_2024_races(races):
     races_2024 = []
     for race in races:
-        if "Aug" in race["Date"][0:3]:  # Example logic to filter races in 2024
+        if "Jul" in race["Date"][0:3]:
             break
         races_2024.append(race)
     return races_2024
 
 # Generate dynamic HTML table for races
 def races_table_maker(races_list):
+    if not races_list:
+        return "<p>No races available</p>"
+    
+    html_table = "<table>\n<tr>\n<th>Place</th>\n<th>Name</th>\n<th>Time</th>\n<th>Date</th>\n<th>Meet</th>\n</tr>\n"
+    for race in races_list:
+        html_table += f"<tr><td>{race['Place']}</td><td>{race['Name']}</td><td>{race['Time']}</td><td>{race['Date']}</td><td>{race['Meet']}</td></tr>\n"
+    html_table += "</table>\n"
+    return html_table
+
+# Generate dynamic HTML table for 2024 races (excluding the Name column)
+def races_table_maker_without_name(races_list):
     if not races_list:
         return "<p>No races available</p>"
     
@@ -131,7 +138,7 @@ def process_team_csvs(team_dir, team_output_dir):
             
             # Create tables for records and races
             athlete_table = table_maker(athlete_records)
-            athlete_races_table_2024 = races_table_maker(athlete_races_2024)
+            athlete_races_table_2024 = races_table_maker_without_name(athlete_races_2024)
             
             # Render athlete's HTML
             athlete_template = env.get_template('athlete.html')
@@ -139,6 +146,8 @@ def process_team_csvs(team_dir, team_output_dir):
                 athlete_name=athlete_name,
                 athlete_grade=athlete_grade,
                 athlete_photo=athlete_photo,
+                athlete_id=athlete_id,
+                athlete_link=athlete_link,
                 athlete_school="Ann Arbor Skyline",
                 season_year="2024",
                 races_2024_table=athlete_races_table_2024,
@@ -157,32 +166,41 @@ process_team_csvs(womens_team_dir, f"{output_dir}/womens_team")
 
 # Function to generate the top 10 fastest times
 def generate_top_10(athletes_data):
-    all_races = []
-    
-    # Collect all races from all athletes
+    athlete_best_times = {}
+
     for data in athletes_data:
-        all_races.extend(extract_races(data))  # Assuming extract_races is used to get race data
-    
-    # Clean and sort races based on time
-    def clean_time(time_str):
-        # Remove any non-numeric and non-time characters (like SR, PR) using regex
-        clean_time_str = re.sub(r'[^\d:.]', '', time_str)  
-        
-        # Split the time into minutes and seconds based on ':'
-        time_parts = clean_time_str.split(':')
-        
-        if len(time_parts) == 2:
-            minutes = int(time_parts[0])
-            seconds = float(time_parts[1])
-            return minutes * 60 + seconds  # Convert to total seconds
-        else:
-            return float(clean_time_str)  # If no colon, return it as a float
-    
-    # Sort all races based on the cleaned time converted to total seconds
-    all_races_sorted = sorted(all_races, key=lambda x: clean_time(x['Time']))
-    
-    # Return the top 10 races
-    return all_races_sorted[:10]
+        races = extract_races(data)
+        for race in races:
+            athlete_name = race["Name"]
+            time = race["Time"]
+
+            # Clean the time to compare
+            cleaned_time = clean_time(time)
+
+            # Update the best time for the athlete
+            if athlete_name not in athlete_best_times:
+                athlete_best_times[athlete_name] = (cleaned_time, time)
+            else:
+                # Compare and keep the fastest time
+                if cleaned_time < athlete_best_times[athlete_name][0]:
+                    athlete_best_times[athlete_name] = (cleaned_time, time)
+
+    # Create a list from the dictionary and sort it to get the top 10
+    top_10 = sorted(athlete_best_times.items(), key=lambda x: x[1][0])[:10]
+
+    # Format the top 10 for rendering
+    return [{"Name": name, "Time": time[1]} for name, time in top_10]
+
+def clean_time(time_str):
+    clean_time_str = re.sub(r'[^\d:.]', '', time_str)
+    time_parts = clean_time_str.split(':')
+
+    if len(time_parts) == 2:
+        minutes = int(time_parts[0])
+        seconds = float(time_parts[1])
+        return minutes * 60 + seconds
+    else:
+        return float(clean_time_str)
 
 # Collect all data for top 10 tables
 mens_top10 = generate_top_10([load_csv_data(os.path.join(mens_team_dir, f)) for f in os.listdir(mens_team_dir) if f.endswith(".csv")])
@@ -195,8 +213,8 @@ womens_top10_table = table_maker(womens_top10)
 # Render the index.html template (pass both top 10 lists)
 index_template = env.get_template('index.html')
 index_html = index_template.render(
-    site_title="Men's and Women's Top 10 XC Times",
-    page_heading="Top 10 Times for Men and Women",
+    site_title="Ann Arbor Skyline Top XC Times",
+    page_heading="Top 10 Ann Arbor Skyline Men's and Women's XC Times",
     mens_top10=mens_top10,
     womens_top10=womens_top10,
     mens_top10_table=mens_top10_table,

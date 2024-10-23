@@ -68,6 +68,13 @@ footer a{
 
 h1 {
     color: var(--primary-color);
+    text-align: center;
+    display: block;
+}
+
+.profile-header h1 {
+    text-align: auto;
+    display: inline;
 }
 
 p, a {
@@ -149,7 +156,7 @@ table {
 th, td, li {
     padding: 10px;
     text-align: center;
-    font-size: 1.1em;
+    font-size: 0.9em;
     color: var(--primary-color);
 }
 

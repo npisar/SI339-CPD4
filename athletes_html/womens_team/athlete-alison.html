@@ -1,70 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- link to stylesheets -->
-    <link rel="stylesheet" href="">
-    <link rel="stylesheet" href="css/style.css">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+   <!-- link to stylesheets -->
+   <link rel="stylesheet" href="../../css/reset.css">
+   <link rel="stylesheet" href="../../css/style.css">
 
-    <!-- Font Awesome CDN for the search icon, and fontawesome script for other icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script src="https://kit.fontawesome.com/c6dd4f98de.js" crossorigin="anonymous"></script>
-    <!-- https://fontawesome.com/kits/c6dd4f98de/setup?created=yes&hosting=hosted -->
+   <!-- Font Awesome CDN -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   <script src="https://kit.fontawesome.com/c6dd4f98de.js" crossorigin="anonymous"></script>
 
-    <!-- Google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+   <!-- Google font -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    <title>Athlete Profile - Alison Kauffman</title>
+   <title>Athlete Profile - Alison Kauffman</title>
 </head>
 <body>
-    <header>
-        <a href="index.html" class="nav-home-button">Home</a>
-        
-        <button class="dark-mode-toggle" onclick="darkModeToggle()">Toggle Dark Mode</button>
+   <header>
+       <a href="../../index.html" class="nav-home-button">Home</a>
+      
+       <button class="dark-mode-toggle" onclick="darkModeToggle()">Toggle Dark Mode</button>
 
-        <script>
-        function darkModeToggle() {
-           var element = document.body;
-           element.classList.toggle("dark-mode");
-        }
-        </script>
+       <script>
+       function darkModeToggle() {
+          var element = document.body;
+          element.classList.toggle("dark-mode");
+       }
+       </script>
 
-        <!-- Accessible search form with hidden label and icon button -->
-        <form action="#" method="get" class="search-form">
-            <label for="search-input" class="sr-only">Search Athlete</label> <!-- Screen-reader only label -->
-            <input type="text" id="search-input" placeholder="Search Athlete" name="q">
-            
-            <button type="submit" aria-label="Search">
-                <i class="fas fa-search"></i> <!-- Font Awesome search icon -->
-            </button>
-        </form>
-    </header>
+       <!-- Accessible search form with hidden label and icon button -->
+       <form action="#" method="get" class="search-form">
+           <label for="search-input" class="sr-only">Search Athlete</label>
+           <input type="text" id="search-input" placeholder="Search Athlete" name="q">
+           <button type="submit" aria-label="Search">
+               <i class="fas fa-search"></i>
+           </button>
+       </form>
+   </header>
 
-<main>
-    <section class="profile-header">
-        
-        <div class="profile-picture">
-            <img src="images/profiles/23564882.jpg" alt="Profile picture">
-        </div>
-        <div class="profile-details">
-            <h1>Alison Kauffman</h1>
-            <p>9th Grade, Ann Arbor Skyline</p>
-            <button class="photos-button">Photos</button>
-        </div>
-    </section>
+   <main>
+       <section class="profile-header">
+           <div class="profile-picture">
+               <img src="../../../images/profiles/23564882.jpg" alt="Profile picture of Alison Kauffman">
+           </div>
+           <div class="profile-details">
+               <h1>Alison Kauffman</h1>
+               <p>9th Grade, Ann Arbor Skyline</p>
+               <button class="photos-button">Photos</button>
+           </div>
+       </section>
 
-    <section class="data">
-        <div class="races-year">
-            <h2>2024 Races</h2>
-            <p>No races available</p>
-        </div>
-        <div class="season-records">
-            <h2>Season Records</h2>
-            <table>
+       <section class="data">
+           <div class="races-year">
+               <h2>2024 Races</h2>
+               <table>
+<tr>
+<th>Place</th>
+<th>Time</th>
+<th>Date</th>
+<th>Meet</th>
+</tr>
+<tr><td>43 </td><td>23:20.0</td><td>Aug 29</td><td>37th Early Bird Open (HS Open 5K)</td></tr>
+<tr><td>52 </td><td>21:59.0PR</td><td>Sep 7</td><td>Bret Clements Bath Invitational (Class 1)</td></tr>
+<tr><td>56 </td><td>23:32.4</td><td>Sep 10</td><td>SEC Jamboree #1 (Varsity)</td></tr>
+<tr><td>55 </td><td>22:09.9</td><td>Sep 14</td><td>56th Holly-Duane Raffin Festival of Races (D1 Girls)</td></tr>
+<tr><td>62 </td><td>26:08.7</td><td>Aug 31</td><td>Early Bird Open (Open Women's 5K)</td></tr>
+<tr><td>52 </td><td>25:38.2</td><td>Sep 13</td><td>SEC-HS Jamboree 1 (All Division Reserve GIRLS)</td></tr>
+<tr><td>47 </td><td>25:08.0</td><td>Sep 16</td><td>55th Holly/Duane Raffin Festival of Races (D1 JV Girls)</td></tr>
+<tr><td>31 </td><td>23:29.1</td><td>Sep 27</td><td>SEC Jamboree 2 (Red) (Reserve Wave 1 (<25:30))</td></tr>
+<tr><td>105 </td><td>23:08.0 SR</td><td>Oct 7</td><td>2023 Portage XC Invitational (Division 1 Reserve)</td></tr>
+<tr><td>52 </td><td>24:23.0</td><td>Oct 19</td><td>SEC HS Championship (All Division Reserve)</td></tr>
+<tr><td>23 </td><td>23:18.9</td><td>Oct 28</td><td>Post Regional Open Meet (PROM) - Springfiled Oaks</td></tr>
+</table>
+
+           </div>
+           <div class="season-records">
+               <h2>Season Records</h2>
+               <table>
 <tr>
 <th>Year</th>
 <th>Grade</th>
@@ -82,32 +98,30 @@
 </tr>
 </table>
 
-        </div>
-        <div class="season-notes">
-            <h2>Season Notes</h2>
-            <ul>
-                <li>2024: Best season performance</li>
-            </ul>
-        </div>
-    </section>
+           </div>
+           <div class="season-notes">
+               <h2>Season Notes</h2>
+               <ul>
+                   <li>2024: Best season performance</li>
+               </ul>
+           </div>
+       </section>
+   </main>
 
-</main>
+   <footer>
+       <a onclick="topFunction()" class="backToTop">Back to Top</a>
+       <div class="fullwidth">
+           <p>Designed by:</p>
+           <p>Kaelyn Lin, Nick Pisarczyk, and Aditya Tambe</p>
+           <p>Updated for CPD3 by Nick Pisarczyk</p>
+       </div>
+   </footer>
 
-<footer>
-    <script>
-        function topFunction() {
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        }
-    </script>
-    <a onclick="topFunction()" class="backToTop">Back to Top</a>
-    <div class="fullwidth">
-        <p>Designed by:</p>
-        <p>Kaelyn Lin, Nick Pisarczyk, and Aditya Tambe</p>
-        <p> </p>
-        <p>Updated for CPD3 by Nick Pisarczyk</p>
-    </div>
-</footer>
-
+   <script>
+       function topFunction() {
+           document.body.scrollTop = 0;
+           document.documentElement.scrollTop = 0;
+       }
+   </script>
 </body>
 </html>
