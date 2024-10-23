@@ -120,15 +120,28 @@ button, .nav-home-button{
     border-radius: 0.5em;
 }
 
-.photos-button {
+.athletic-link-button {
+    display: inline-block;
+    text-align: center;
     margin-top: 10px;
     padding: 8px 12px;
+    text-decoration: none;
     background-color: var(--secondary-color);
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
+
+.athletic-link-button:hover {
+    background-color: var(--primary-color);
+    color: var(--surface-color);
+}
+
+/* .dark-mode .athletic-link-button:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+} */
 
 button:hover, .nav-home-button:hover {
     text-decoration: none;
@@ -295,8 +308,8 @@ main {
     color: var(--primary-color);
 }
 
-.photos-button:hover {
-    background-color: var(--15);
+.profile-details {
+    margin-bottom: 1em;
 }
 
 
@@ -354,6 +367,9 @@ main .season-notes {
 /* ############################################
 ###############################################
 ############################################ */
+
+
+
 /* OTHER STYLES - old responsive */
 /* mobile styles */
 /* @media screen and (min-width: 200px) {

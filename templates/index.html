@@ -20,15 +20,25 @@
    <title>Top 10 Athlete Rankings</title>
 </head>
 <body>
-   <header>
+    <script>
+        if(document.cookie){
+            element.classList.toggle("dark-mode")
+        }
+    </script>
+    <header>
        <a href="index.html" class="nav-home-button">Home</a>
       
        <button class="dark-mode-toggle" onclick="darkModeToggle()">Toggle Dark Mode</button>
 
        <script>
        function darkModeToggle() {
-          var element = document.body;
-          element.classList.toggle("dark-mode");
+        var element = document.body;
+            element.classList.toggle("dark-mode");
+            
+            if (element.classList.contains("dark-mode")) {
+            document.cookie = "isDark=true"
+            }
+            else (document.cookie = isDark=false)
        }
        </script>
 

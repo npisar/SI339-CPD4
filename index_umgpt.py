@@ -130,7 +130,11 @@ def process_team_csvs(team_dir, team_output_dir):
             
             # Extract athlete info
             athlete_name, athlete_id, athlete_link, athlete_grade, athlete_photo = extract_athlete_info(data)
-            
+            if athlete_grade == "N/A":
+                athlete_grade = "Athlete grade not found"
+            else:
+                athlete_grade+= "th Grade"
+
             # Extract records and races
             athlete_records = extract_season_records(data)
             athlete_races = extract_races(data)
@@ -156,7 +160,9 @@ def process_team_csvs(team_dir, team_output_dir):
             )
             
             # Save HTML file
-            output_path = os.path.join(team_output_dir, f"athlete-{athlete_name.split()[0].lower()}.html")
+            # print(f"athlete_name is {athlete_name}")
+            # print(f"{athlete_name}'s grade is {athlete_grade}")
+            output_path = os.path.join(team_output_dir, f"athlete-{(athlete_name.split()[0]+"-"+athlete_name.split()[1]).lower()}.html")
             with open(output_path, "w") as f:
                 f.write(athlete_html)
 
