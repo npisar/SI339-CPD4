@@ -217,6 +217,18 @@ details summary:hover {
     background-color: var(--primary-color);
 }
 
+/* transitions */
+@keyframes details-show {
+    from {
+      opacity:0;
+      transform: var(--details-translate, translateY(-0.5em));
+    }
+  }
+  
+  details[open] > *:not(summary) {
+    animation: details-show 150ms ease-in-out;
+  }
+
 .data .races-year, .season-records, .season-notes, .season-box {
     border: 1px solid var(--15);
     background-color: var(--07);
@@ -335,7 +347,19 @@ main {
 /* ############################################
 ###############################################
 ############################################ */
+/* icons */
+#mens_first, #womens_first, #mens_second, #womens_second, #mens_third, #womens_third {
+    color: var(--primary-color);
+}
 
+.fa-solid .fa-bars {
+    color: var(--surface-color);
+    transition: 0.25s color ease;
+}
+
+.fa-solid .fa-bars:hover {
+    color: var(--primary-color);
+}
 
 
 /* ############################################
@@ -350,11 +374,15 @@ header {
 header .search-form {
     grid-area: 1/2/2/4;
 }
-header .dark-mode-toggle {
-    grid-area: 2/3/2/span 2
-}
+/* header .dark-mode-toggle {
+    grid-area: 2/2/2/span 2
+} */
 header .nav-home-button {
-    grid-area: 2/1/2/3
+    grid-area: 2/1/2/3;
+}
+
+header .fa-solid.fa-bars {
+    grid-area: 2 / 4 / 3 / 5; /* Move to the bottom-right corner */
 }
 
 

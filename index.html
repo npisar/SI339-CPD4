@@ -21,19 +21,16 @@
 </head>
 <body>
     <header>
-       <a href="index.html" class="nav-home-button">Home</a>
-      
-       <button class="dark-mode-toggle" onclick="darkModeToggle()">Toggle Dark Mode</button>
+        <a href="index.html" class="nav-home-button">Home</a>
+        <details>
+            <summary><i class="fa-solid fa-bars"></i></summary>
+            <button class="dark-mode-toggle" onclick="darkModeToggle()">Toggle Dark Mode</button>
+        </details>
 
        <script>
        function darkModeToggle() {
         var element = document.body;
             element.classList.toggle("dark-mode");
-            
-            if (element.classList.contains("dark-mode")) {
-            document.cookie = "isDark=true"
-            }
-            else (document.cookie = isDark=false)
        }
        </script>
 
@@ -48,169 +45,330 @@
    </header>
 
    <main>
-       <h1>Top 10 Ann Arbor Skyline Men's and Women's XC Times</h1>
-       <section class="meet-results">
-           <details class="season-box">
-               <summary>Top 10 Men's Times</summary>
-               <table>
-                   <tr>
-                       <th>Rank</th>
-                       <th>Name</th>
-                       <th>Time</th>
-                   </tr>
-                   
-                   <tr>
-                       <td>1</td>
-                       <td><a href="athletes_html/mens_team/athlete-connor-jett.html">Connor Jett</a></td>
-                       <td>14:21.8PR</td>
-                   </tr>
-                   
-                   <tr>
-                       <td>2</td>
-                       <td><a href="athletes_html/mens_team/athlete-bruno-cifaldi.html">Bruno Cifaldi</a></td>
-                       <td>16:57.4PR</td>
-                   </tr>
-                   
-                   <tr>
-                       <td>3</td>
-                       <td><a href="athletes_html/mens_team/athlete-nicholas-yuan.html">Nicholas Yuan</a></td>
-                       <td>17:13.1PR</td>
-                   </tr>
-                   
-                   <tr>
-                       <td>4</td>
-                       <td><a href="athletes_html/mens_team/athlete-jack-robichaud.html">Jack Robichaud</a></td>
-                       <td>17:14.9PR</td>
-                   </tr>
-                   
-                   <tr>
-                       <td>5</td>
-                       <td><a href="athletes_html/mens_team/athlete-matthew-guikema.html">Matthew Guikema</a></td>
-                       <td>17:14.9PR</td>
-                   </tr>
-                   
-                   <tr>
-                       <td>6</td>
-                       <td><a href="athletes_html/mens_team/athlete-enshu-kuan.html">Enshu Kuan</a></td>
-                       <td>17:20.8PR</td>
-                   </tr>
-                   
-                   <tr>
-                       <td>7</td>
-                       <td><a href="athletes_html/mens_team/athlete-kyle-krasan.html">Kyle Krasan</a></td>
-                       <td>17:43.4PR</td>
-                   </tr>
-                   
-                   <tr>
-                       <td>8</td>
-                       <td><a href="athletes_html/mens_team/athlete-zeke-lafferty.html">Zeke Lafferty</a></td>
-                       <td>17:55.6PR</td>
-                   </tr>
-                   
-                   <tr>
-                       <td>9</td>
-                       <td><a href="athletes_html/mens_team/athlete-oskar-macarthur.html">Oskar MacArthur</a></td>
-                       <td>17:57.7PR</td>
-                   </tr>
-                   
-                   <tr>
-                       <td>10</td>
-                       <td><a href="athletes_html/mens_team/athlete-martin-gehrke.html">Martin Gehrke</a></td>
-                       <td>17:58.8PR</td>
-                   </tr>
-                   
-               </table>
+        <h1 class="index_head_1">Ann Arbor Skyline XC</h1>
+        <h1 class="index_head_2">Top 10 Men's and Women's Times</h1>
+        <section class="meet-results">
+            <details class="season-box">
+                <summary>Top 10 Men's Times</summary>
+                <table>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Time</th>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                                <i class="fa-solid fa-medal fa-lg" id="mens_first"></i>
+                            
+                        </td>
+                        <td>
+                            <a href="athletes_html/mens_team/athlete-connor-jett.html">
+                                Connor Jett
+                            </a>
+                        </td>
+                        <td>14:21.8PR</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                                <i class="fa-solid fa-medal fa-lg" id="mens_second"></i>
+                            
+                        </td>
+                        <td>
+                            <a href="athletes_html/mens_team/athlete-bruno-cifaldi.html">
+                                Bruno Cifaldi
+                            </a>
+                        </td>
+                        <td>16:57.4PR</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                                <i class="fa-solid fa-medal fa-lg" id="mens_third"></i>
+                            
+                        </td>
+                        <td>
+                            <a href="athletes_html/mens_team/athlete-nicholas-yuan.html">
+                                Nicholas Yuan
+                            </a>
+                        </td>
+                        <td>17:13.1PR</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                                4
+                            
+                        </td>
+                        <td>
+                            <a href="athletes_html/mens_team/athlete-jack-robichaud.html">
+                                Jack Robichaud
+                            </a>
+                        </td>
+                        <td>17:14.9PR</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                                5
+                            
+                        </td>
+                        <td>
+                            <a href="athletes_html/mens_team/athlete-matthew-guikema.html">
+                                Matthew Guikema
+                            </a>
+                        </td>
+                        <td>17:14.9PR</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                                6
+                            
+                        </td>
+                        <td>
+                            <a href="athletes_html/mens_team/athlete-enshu-kuan.html">
+                                Enshu Kuan
+                            </a>
+                        </td>
+                        <td>17:20.8PR</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                                7
+                            
+                        </td>
+                        <td>
+                            <a href="athletes_html/mens_team/athlete-kyle-krasan.html">
+                                Kyle Krasan
+                            </a>
+                        </td>
+                        <td>17:43.4PR</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                                8
+                            
+                        </td>
+                        <td>
+                            <a href="athletes_html/mens_team/athlete-zeke-lafferty.html">
+                                Zeke Lafferty
+                            </a>
+                        </td>
+                        <td>17:55.6PR</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                                9
+                            
+                        </td>
+                        <td>
+                            <a href="athletes_html/mens_team/athlete-oskar-macarthur.html">
+                                Oskar MacArthur
+                            </a>
+                        </td>
+                        <td>17:57.7PR</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                                10
+                            
+                        </td>
+                        <td>
+                            <a href="athletes_html/mens_team/athlete-martin-gehrke.html">
+                                Martin Gehrke
+                            </a>
+                        </td>
+                        <td>17:58.8PR</td>
+                    </tr>
+                    
+                </table>
             </details>
-           <details class="season-box">
-               <summary>Top 10 Women's Times</summary>
-               <table>
-                   <tr>
-                       <th>Rank</th>
-                       <th>Name</th>
-                       <th>Time</th>
-                   </tr>
-                   
-                   <tr>
-                       <td>1</td>
-                       <td><a href="athletes_html/womens_team/athlete-becca-van-lent.html">Becca Van Lent</a></td>
-                       <td>19:01.2PR</td>
-                   </tr>
-                   
-                   <tr>
-                       <td>2</td>
-                       <td><a href="athletes_html/womens_team/athlete-lucia-llanes.html">Lucia Llanes</a></td>
-                       <td>19:05.2PR</td>
-                   </tr>
-                   
-                   <tr>
-                       <td>3</td>
-                       <td><a href="athletes_html/womens_team/athlete-irie-scrase.html">Irie Scrase</a></td>
-                       <td>19:08.3PR</td>
-                   </tr>
-                   
-                   <tr>
-                       <td>4</td>
-                       <td><a href="athletes_html/womens_team/athlete-ayla-balazer.html">Ayla Balazer</a></td>
-                       <td>19:40.2PR</td>
-                   </tr>
-                   
-                   <tr>
-                       <td>5</td>
-                       <td><a href="athletes_html/womens_team/athlete-isla-tharp.html">Isla Tharp</a></td>
-                       <td>20:34.3PR</td>
-                   </tr>
-                   
-                   <tr>
-                       <td>6</td>
-                       <td><a href="athletes_html/womens_team/athlete-lila-edison.html">Lila Edison</a></td>
-                       <td>20:55.2PR</td>
-                   </tr>
-                   
-                   <tr>
-                       <td>7</td>
-                       <td><a href="athletes_html/womens_team/athlete-katie-yuan.html">Katie Yuan</a></td>
-                       <td>21:43.1PR</td>
-                   </tr>
-                   
-                   <tr>
-                       <td>8</td>
-                       <td><a href="athletes_html/womens_team/athlete-grace-hopkins.html">Grace Hopkins</a></td>
-                       <td>21:56.7PR</td>
-                   </tr>
-                   
-                   <tr>
-                       <td>9</td>
-                       <td><a href="athletes_html/womens_team/athlete-alison-kauffman.html">Alison Kauffman</a></td>
-                       <td>21:59.0PR</td>
-                   </tr>
-                   
-                   <tr>
-                       <td>10</td>
-                       <td><a href="athletes_html/womens_team/athlete-mara-mocanu.html">Mara Mocanu</a></td>
-                       <td>22:13.0PR</td>
-                   </tr>
-                   
-               </table>
-           </details>
-       </section>
-   </main>
+        
+            <details class="season-box">
+                <summary>Top 10 Women's Times</summary>
+                <table>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Time</th>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                                <i class="fa-solid fa-medal fa-lg" id="womens_first"></i>
+                            
+                        </td>
+                        <td>
+                            <a href="athletes_html/womens_team/athlete-becca-van-lent.html">
+                                Becca Van Lent
+                            </a>
+                        </td>
+                        <td>19:01.2PR</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                                <i class="fa-solid fa-medal fa-lg" id="womens_second"></i>
+                            
+                        </td>
+                        <td>
+                            <a href="athletes_html/womens_team/athlete-lucia-llanes.html">
+                                Lucia Llanes
+                            </a>
+                        </td>
+                        <td>19:05.2PR</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                                <i class="fa-solid fa-medal fa-lg" id="womens_third"></i>
+                            
+                        </td>
+                        <td>
+                            <a href="athletes_html/womens_team/athlete-irie-scrase.html">
+                                Irie Scrase
+                            </a>
+                        </td>
+                        <td>19:08.3PR</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                                4
+                            
+                        </td>
+                        <td>
+                            <a href="athletes_html/womens_team/athlete-ayla-balazer.html">
+                                Ayla Balazer
+                            </a>
+                        </td>
+                        <td>19:40.2PR</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                                5
+                            
+                        </td>
+                        <td>
+                            <a href="athletes_html/womens_team/athlete-isla-tharp.html">
+                                Isla Tharp
+                            </a>
+                        </td>
+                        <td>20:34.3PR</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                                6
+                            
+                        </td>
+                        <td>
+                            <a href="athletes_html/womens_team/athlete-lila-edison.html">
+                                Lila Edison
+                            </a>
+                        </td>
+                        <td>20:55.2PR</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                                7
+                            
+                        </td>
+                        <td>
+                            <a href="athletes_html/womens_team/athlete-katie-yuan.html">
+                                Katie Yuan
+                            </a>
+                        </td>
+                        <td>21:43.1PR</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                                8
+                            
+                        </td>
+                        <td>
+                            <a href="athletes_html/womens_team/athlete-grace-hopkins.html">
+                                Grace Hopkins
+                            </a>
+                        </td>
+                        <td>21:56.7PR</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                                9
+                            
+                        </td>
+                        <td>
+                            <a href="athletes_html/womens_team/athlete-alison-kauffman.html">
+                                Alison Kauffman
+                            </a>
+                        </td>
+                        <td>21:59.0PR</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                                10
+                            
+                        </td>
+                        <td>
+                            <a href="athletes_html/womens_team/athlete-mara-mocanu.html">
+                                Mara Mocanu
+                            </a>
+                        </td>
+                        <td>22:13.0PR</td>
+                    </tr>
+                    
+                </table>
+            </details>
+        </section>
+    </main>
   
-   <footer>
-       <a onclick="topFunction()" class="backToTop">Back to Top</a>
-       <div class="fullwidth">
-           <p>Designed by:</p>
-           <p>Kaelyn Lin, Nick Pisarczyk, and Aditya Tambe</p>
-           <p>Updated for CPD3 by Nick Pisarczyk</p>
-       </div>
-   </footer>
+    <footer>
+        <a onclick="topFunction()" class="backToTop">Back to Top</a>
+        <div class="fullwidth">
+            <p>Designed by:</p>
+            <p>Kaelyn Lin, Nick Pisarczyk, and Aditya Tambe</p>
+            <p>Updated for CPD3 by Nick Pisarczyk</p>
+        </div>
+    </footer>
 
-   <script>
-       function topFunction() {
-           document.body.scrollTop = 0;
-           document.documentElement.scrollTop = 0;
-       }
-   </script>
+    <script>
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
 
 </body>
 </html>
-=

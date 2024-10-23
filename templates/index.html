@@ -21,19 +21,16 @@
 </head>
 <body>
     <header>
-       <a href="index.html" class="nav-home-button">Home</a>
-      
-       <button class="dark-mode-toggle" onclick="darkModeToggle()">Toggle Dark Mode</button>
+        <a href="index.html" class="nav-home-button">Home</a>
+        <details>
+            <summary><i class="fa-solid fa-bars"></i></summary>
+            <button class="dark-mode-toggle" onclick="darkModeToggle()">Toggle Dark Mode</button>
+        </details>
 
        <script>
        function darkModeToggle() {
         var element = document.body;
             element.classList.toggle("dark-mode");
-            
-            if (element.classList.contains("dark-mode")) {
-            document.cookie = "isDark=true"
-            }
-            else (document.cookie = isDark=false)
        }
        </script>
 
@@ -48,61 +45,90 @@
    </header>
 
    <main>
-       <h1>{{ page_heading }}</h1>
-       <section class="meet-results">
-           <details class="season-box">
-               <summary>Top 10 Men's Times</summary>
-               <table>
-                   <tr>
-                       <th>Rank</th>
-                       <th>Name</th>
-                       <th>Time</th>
-                   </tr>
-                   {% for index in range(mens_top10 | length) %}
-                   <tr>
-                       <td>{{ index + 1 }}</td>
-                       <td><a href="athletes_html/mens_team/athlete-{{ mens_top10[index]['Name'].replace(' ', '-').lower() }}.html">{{ mens_top10[index]['Name'] }}</a></td>
-                       <td>{{ mens_top10[index]['Time'] }}</td>
-                   </tr>
-                   {% endfor %}
-               </table>
+        <h1 class="index_head_1">{{ page_heading_l1 }}</h1>
+        <h1 class="index_head_2">{{ page_heading_l2 }}</h1>
+        <section class="meet-results">
+            <details class="season-box">
+                <summary>Top 10 Men's Times</summary>
+                <table>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Time</th>
+                    </tr>
+                    {% for index in range(mens_top10 | length) %}
+                    <tr>
+                        <td>
+                            {% if index == 0 %}
+                                <i class="fa-solid fa-medal fa-lg" id="mens_first"></i>
+                            {% elif index == 1 %}
+                                <i class="fa-solid fa-medal fa-lg" id="mens_second"></i>
+                            {% elif index == 2 %}
+                                <i class="fa-solid fa-medal fa-lg" id="mens_third"></i>
+                            {% else %}
+                                {{ index + 1 }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="athletes_html/mens_team/athlete-{{ mens_top10[index]['Name'].replace(' ', '-').lower() }}.html">
+                                {{ mens_top10[index]['Name'] }}
+                            </a>
+                        </td>
+                        <td>{{ mens_top10[index]['Time'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
             </details>
-           <details class="season-box">
-               <summary>Top 10 Women's Times</summary>
-               <table>
-                   <tr>
-                       <th>Rank</th>
-                       <th>Name</th>
-                       <th>Time</th>
-                   </tr>
-                   {% for index in range(womens_top10 | length) %}
-                   <tr>
-                       <td>{{ index + 1 }}</td>
-                       <td><a href="athletes_html/womens_team/athlete-{{ womens_top10[index]['Name'].replace(' ', '-').lower() }}.html">{{ womens_top10[index]['Name'] }}</a></td>
-                       <td>{{ womens_top10[index]['Time'] }}</td>
-                   </tr>
-                   {% endfor %}
-               </table>
-           </details>
-       </section>
-   </main>
+        
+            <details class="season-box">
+                <summary>Top 10 Women's Times</summary>
+                <table>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Time</th>
+                    </tr>
+                    {% for index in range(mens_top10 | length) %}
+                    <tr>
+                        <td>
+                            {% if index == 0 %}
+                                <i class="fa-solid fa-medal fa-lg" id="womens_first"></i>
+                            {% elif index == 1 %}
+                                <i class="fa-solid fa-medal fa-lg" id="womens_second"></i>
+                            {% elif index == 2 %}
+                                <i class="fa-solid fa-medal fa-lg" id="womens_third"></i>
+                            {% else %}
+                                {{ index + 1 }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="athletes_html/womens_team/athlete-{{ womens_top10[index]['Name'].replace(' ', '-').lower() }}.html">
+                                {{ womens_top10[index]['Name'] }}
+                            </a>
+                        </td>
+                        <td>{{ womens_top10[index]['Time'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </details>
+        </section>
+    </main>
   
-   <footer>
-       <a onclick="topFunction()" class="backToTop">Back to Top</a>
-       <div class="fullwidth">
-           <p>Designed by:</p>
-           <p>Kaelyn Lin, Nick Pisarczyk, and Aditya Tambe</p>
-           <p>Updated for CPD3 by Nick Pisarczyk</p>
-       </div>
-   </footer>
+    <footer>
+        <a onclick="topFunction()" class="backToTop">Back to Top</a>
+        <div class="fullwidth">
+            <p>Designed by:</p>
+            <p>Kaelyn Lin, Nick Pisarczyk, and Aditya Tambe</p>
+            <p>Updated for CPD3 by Nick Pisarczyk</p>
+        </div>
+    </footer>
 
-   <script>
-       function topFunction() {
-           document.body.scrollTop = 0;
-           document.documentElement.scrollTop = 0;
-       }
-   </script>
+    <script>
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
 
 </body>
 </html>
-=
