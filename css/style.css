@@ -31,6 +31,7 @@
 /* base styles */
 body {
     font-family: 'Roboto', sans-serif;
+    font-size: 14pt;
     margin: 0;
     padding: 0;
     background-color: var(--surface-color);
@@ -38,7 +39,6 @@ body {
 }
 
 header {
-    max-width: 100%;
     position: sticky;
     top: 0;
     background-color: var(--secondary-color);
@@ -347,32 +347,33 @@ main .season-notes {
 /* ############################################
 ###############################################
 ############################################ */
+/* OTHER STYLES - old responsive */
 /* mobile styles */
-@media screen and (min-width: 200px) {
+/* @media screen and (min-width: 200px) {
     body {
         font-size: 14px;
     }
 }
 
 /* small tablet styles */
-@media screen and (min-width: 620px) {
+/* @media screen and (min-width: 620px) {
     body {
         font-size: 16px;
     }
-}
+} */
 
 
 /* large tablet & laptop styles */
-@media screen and (min-width: 960px) {
+/* @media screen and (min-width: 960px) {
     body {
         font-size: 18px;
     }
-}
+} */
 
 
 /* desktop styles */
-@media screen and (mind-width: 1200px) {
+/* @media screen and (mind-width: 1200px) {
     body {
         font-size: 20px;
     }
-}
+} */

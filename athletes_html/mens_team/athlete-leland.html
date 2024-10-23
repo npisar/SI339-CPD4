@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-    <title>Athlete Profile - {{ athlete_name }}</title>
+    <title>Athlete Profile - Leland Weiser</title>
 </head>
 <body>
     <header>
@@ -48,28 +48,63 @@
     <section class="profile-header">
         
         <div class="profile-picture">
-            <img src="{{ athlete_photo }}" alt="Profile picture">
+            <img src="images/default_image.jpg" alt="Profile picture">
         </div>
         <div class="profile-details">
-            <h1>{{ athlete_name }}</h1>
-            <p>{{ athlete_grade }}th Grade, {{ athlete_school }}</p>
+            <h1>Leland Weiser</h1>
+            <p>9th Grade, Ann Arbor Skyline</p>
             <button class="photos-button">Photos</button>
         </div>
     </section>
 
     <section class="data">
         <div class="races-year">
-            <h2>{{ season_year }} Races</h2>
-            {{ races_2024_table | safe }}
+            <h2>2024 Races</h2>
+            <table>
+<tr>
+<th>Place</th>
+<th>Time</th>
+<th>Date</th>
+<th>Meet</th>
+</tr>
+<tr><td>87 </td><td>21:08.7 SR</td><td>Oct 28</td><td>Post Regional Open Meet (PROM) - Springfiled Oaks</td></tr>
+<tr><td>97 </td><td>19:39.8</td><td>Sep 1</td><td>22 Saline Early Bird</td></tr>
+<tr><td>97 </td><td>20:02.3</td><td>Sep 14</td><td>SEC-HS Jamboree 1 (Red/White Varsity Boys)</td></tr>
+<tr><td>147 </td><td>18:58.6 SR</td><td>Sep 24</td><td>Jackson Invitational - Varsity (Orange Division)</td></tr>
+<tr><td>110 </td><td>21:01.6</td><td>Oct 27</td><td>Brighton PROM</td></tr>
+</table>
+
         </div>
         <div class="season-records">
             <h2>Season Records</h2>
-            {{ all_records_table | safe }}
+            <table>
+<tr>
+<th>Year</th>
+<th>Grade</th>
+<th>Time</th>
+</tr>
+<tr>
+<td>2021</td>
+<td>9</td>
+<td>18:51.1PR</td>
+</tr>
+<tr>
+<td>2022</td>
+<td>10</td>
+<td>18:58.6</td>
+</tr>
+<tr>
+<td>2023</td>
+<td>11</td>
+<td>21:08.7</td>
+</tr>
+</table>
+
         </div>
         <div class="season-notes">
             <h2>Season Notes</h2>
             <ul>
-                {{ season_notes | safe }}
+                <li>2024: Best season performance</li>
             </ul>
         </div>
     </section>
