@@ -174,6 +174,26 @@ button{
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 50%;
+    justify-self: start;
+}
+
+.color-options-menu{
+    border: none;
+    background: var(--surface-color);
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3em;
+    width: 3em;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50%;
+    justify-self: end;
 }
 
 
@@ -188,6 +208,7 @@ button{
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: fit-content;
 }
 
 .athletic-link-button:hover {
@@ -201,12 +222,12 @@ button{
 } */
 
 /* smooth transition */
-button, .nav-home-button, .backToTop {
+button, .nav-home-button, .color-options-menu{
     transition: 0.25s color ease;
     transition: 0.25s background-color ease;
 }
 
-button:hover, .nav-home-button:hover {
+button:hover, .nav-home-button:hover, .color-options-menu:hover{
     text-decoration: none;
     background-color: var(--primary-color);
     color: var(--surface-color);
@@ -294,16 +315,12 @@ details summary::-webkit-details-marker {
     animation: details-show 150ms ease-in-out;
   }
 
-.data .races-year, .season-records, .season-notes, .season-box {
+.data .all-races, .season-records, .season-notes, .season-box {
     border: 1px solid var(--15);
     background-color: var(--07);
     padding: 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
-}
-
-.season-records {
-    text-align: center;
     padding-bottom: 1em;
 }
 
@@ -363,8 +380,27 @@ header {
     background: none;
 }
 
+.color-options-section {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
 
+.dark-mode-toggle, .high-contrast-mode-toggle {
+    display: block;
+    justify-self: end;
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    margin: 0.5em 0 0.5em 0;
+}
 
+.dark-mode-toggle {
+    grid-row-start: 1;
+}
+
+.high-contrast-mode-toggle {
+    grid-row-start: 2;
+}
 
 /* ############################################
 ###############################################
@@ -423,19 +459,16 @@ main {
 /* ############################################
 ###############################################
 ############################################ */
-/* icons */
+/* icons and graph */
 #mens_first, #womens_first, #mens_second, #womens_second, #mens_third, #womens_third {
     color: var(--primary-color);
 }
 
-.fa-bars {
-    color: var(--surface-color);
-    transition: 0.25s color ease;
+.progression-graph canvas {
+    width: auto;
+    max-height: 400px; /* Adjust height as needed */
 }
 
-.fa-solid .fa-bars:hover {
-    color: var(--primary-color);
-}
 
 
 /* ############################################
@@ -468,7 +501,7 @@ main {
 main .profile-header {
     grid-area: 1 / 1 / 2 / 1;
 }
-main .races-year {
+main .all-races {
     grid-area: 2 / 1 / 3 / 1;
     margin-bottom: 2em;
 }

@@ -11,6 +11,8 @@
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://kit.fontawesome.com/c6dd4f98de.js" crossorigin="anonymous"></script>
+    <!-- Include the Chart.js CDN for graph functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- Google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,8 +25,8 @@
         <header>
         <a href="../../index.html" class="nav-home-button"><i class="fa-solid fa-house" aria-label="home button"></i></a>
         
-        <details>
-            <summary class="color-options"><i class="fa-solid fa-bars" aria-label="Color options menu"></i></summary>
+        <details class="color-options-section">
+            <summary class="color-options-menu"><i class="fa-solid fa-bars" aria-label="Color options menu"></i></summary>
             <button class="dark-mode-toggle" onclick="darkModeToggle()"><i class="fa-solid fa-moon"></i></button>
             <button class="high-contrast-mode-toggle" onclick="highContrastModeToggle()"><i class="fa-solid fa-circle-half-stroke"></i></button>
         </details>
@@ -37,7 +39,7 @@
                          element.classList.toggle("dark-mode");
                      }
                  else {
-                     (element.classList.toggle("high-contrast-mode"));
+                     (element.classList.toggle("dark-mode"));
                      }
             }
      
@@ -77,8 +79,8 @@
             </section>
 
             <section class="data">
-                <details class="races-year">
-                    <summary>All Races</summary>
+                <details class="all-races">
+                    <summary><i class="fa-solid fa-person-running" data-fa-transform="left-30"></i>All Races</summary>
                     <table>
 <tr>
 <th>Place</th>
@@ -101,7 +103,7 @@
 
                 </details>
                 <details class="season-records">
-                    <summary>Season Records</summary>
+                    <summary><i class="fa-solid fa-star" data-fa-transform="left-30"></i>Season Records</summary>
                     <table>
 <tr>
 <th>Year</th>
@@ -122,9 +124,9 @@
 
                 </details>
                 <details class="season-notes">
-                    <summary>Season Notes</summary>
+                    <summary><i class="fa-solid fa-clipboard" data-fa-transform="left-30"></i>Season Notes</summary>
                         <ul><li>2024: Best season performance</li></ul>
-                </details>
+                </details>              
             </section>
         </main>
 
