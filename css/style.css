@@ -22,6 +22,17 @@
     --15: rgba(255, 255, 255, 0.15);
 }
 
+/* high contrast mode */
+.high-contrast-mode {
+    --primary-color: #ffffff;
+    --surface-color: #121212;
+    --secondary-color: #ff0090;
+    --03: rgba(255, 255, 255, 0)
+    --07: rgba(255, 255, 255, 0);
+    --09: rgba(255, 255, 255, 0);
+    --12: rgba(255, 255, 255, 0);
+    --15: rgba(255, 255, 255, 0);
+}
 
 
 
@@ -35,7 +46,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--surface-color);
-/
 }
 
 header {
@@ -72,6 +82,10 @@ h1 {
     display: block;
 }
 
+.index_head_1 {
+    margin-bottom: -25em;
+}
+
 .profile-header h1 {
     text-align: auto;
     display: inline;
@@ -104,11 +118,32 @@ p, a {
     border: 2px solid var(--primary-color)
 }
 
+
+
+
+/* ############################################
+###############################################
+############################################ */
+/* high contrast mode */
+body.high-contrast-mode > main > section > details, summary, table {
+    border: 2px solid white;
+}
+
+body.high-contrast-mode > *:not(main) {
+    border: 2px solid white;
+}
+
+body.high-contrast-mode > main > section > summary {
+    background-color: black;
+}
+
+
+
 /* ############################################
 ###############################################
 ############################################ */
 /* buttons */
-button, .nav-home-button{
+button{
     border: none;
     height: 3em;
     background: var(--surface-color);
@@ -122,6 +157,25 @@ button, .nav-home-button{
     cursor: pointer;
     border-radius: 0.5em;
 }
+
+.nav-home-button{
+    border: none;
+    background: var(--surface-color);
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    width: fit-content;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
 
 .athletic-link-button {
     display: inline-block;
@@ -157,6 +211,9 @@ button:hover, .nav-home-button:hover {
     background-color: var(--primary-color);
     color: var(--surface-color);
 }
+
+
+
 
 /* ############################################
 ###############################################
@@ -217,6 +274,14 @@ details summary:hover {
     background-color: var(--primary-color);
 }
 
+details summary {
+    list-style: none;
+}
+  
+details summary::-webkit-details-marker {
+    display:none;
+}
+
 /* transitions */
 @keyframes details-show {
     from {
@@ -248,10 +313,21 @@ details summary:hover {
 
 
 
-
 /* ############################################
 ###############################################
 ############################################ */
+/* header items */
+header {
+    position: sticky;
+    top: 0;
+    background-color: var(--secondary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 /* search form */
 .search-form {
     position: relative;
@@ -352,7 +428,7 @@ main {
     color: var(--primary-color);
 }
 
-.fa-solid .fa-bars {
+.fa-bars {
     color: var(--surface-color);
     transition: 0.25s color ease;
 }
@@ -369,20 +445,15 @@ main {
 header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-}
-header .search-form {
-    grid-area: 1/2/2/4;
-}
-/* header .dark-mode-toggle {
-    grid-area: 2/2/2/span 2
-} */
-header .nav-home-button {
-    grid-area: 2/1/2/3;
+    grid-template-rows: 1fr;
 }
 
-header .fa-solid.fa-bars {
-    grid-area: 2 / 4 / 3 / 5; /* Move to the bottom-right corner */
+header .nav-home-button {
+    grid-area: 1 / 1 / 1 / 1;
+}
+
+header .search-form {
+    grid-area: 1/2/1/4;
 }
 
 
@@ -393,6 +464,7 @@ main {
     grid-row-gap: 3em;
     padding: 20px
 }
+
 main .profile-header {
     grid-area: 1 / 1 / 2 / 1;
 }

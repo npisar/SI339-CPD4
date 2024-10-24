@@ -21,23 +21,42 @@
 </head>
 <body>
     <header>
-        <a href="index.html" class="nav-home-button">Home</a>
+        <a href="index.html" class="nav-home-button"><i class="fa-solid fa-house" aria-label="home button"></i></a>
+
         <details>
-            <summary><i class="fa-solid fa-bars"></i></summary>
-            <button class="dark-mode-toggle" onclick="darkModeToggle()">Toggle Dark Mode</button>
+            <summary class="color-options"><i class="fa-solid fa-bars" aria-label="Color options menu"></i></summary>
+            <button class="dark-mode-toggle" onclick="darkModeToggle()"><i class="fa-solid fa-moon"></i></button>
+            <button class="high-contrast-mode-toggle" onclick="highContrastModeToggle()"><i class="fa-solid fa-circle-half-stroke"></i></button>
         </details>
 
        <script>
        function darkModeToggle() {
         var element = document.body;
-            element.classList.toggle("dark-mode");
+            if (element.classList.contains("high-contrast-mode")) {
+                    element.classList.toggle("high-contrast-mode");
+                    element.classList.toggle("dark-mode");
+                }
+            else {
+                (element.classList.toggle("high-contrast-mode"));
+                }
        }
+
+        function highContrastModeToggle() {
+        var element = document.body;
+            if (element.classList.contains("dark-mode")) {
+                element.classList.toggle("dark-mode");
+                element.classList.toggle("high-contrast-mode");
+                }
+            else {
+                (element.classList.toggle("high-contrast-mode"));
+                }
+        }
        </script>
 
        <!-- Accessible search form with hidden label and icon button -->
        <form action="#" method="get" class="search-form">
            <label for="search-input" class="sr-only">Search Athlete</label>
-           <input type="text" id="search-input" placeholder="Search Athlete (not currently functional)" name="q">
+           <input type="text" id="search-input" placeholder="Search Athlete" name="q">
            <button type="submit" aria-label="Search">
                <i class="fas fa-search"></i>
            </button>
@@ -60,7 +79,7 @@
                     <tr>
                         <td>
                             
-                                <i class="fa-solid fa-medal fa-lg" id="mens_first"></i>
+                                <i class="fa-solid fa-medal fa-lg" id="mens_first" aria-label="First place medal"></i>
                             
                         </td>
                         <td>
@@ -74,7 +93,7 @@
                     <tr>
                         <td>
                             
-                                <i class="fa-solid fa-medal fa-lg" id="mens_second"></i>
+                                <i class="fa-solid fa-medal fa-lg" id="mens_second" aria-label="Second place medal"></i>
                             
                         </td>
                         <td>
@@ -88,7 +107,7 @@
                     <tr>
                         <td>
                             
-                                <i class="fa-solid fa-medal fa-lg" id="mens_third"></i>
+                                <i class="fa-solid fa-medal fa-lg" id="mens_third" aria-label="Third place medal"></i>
                             
                         </td>
                         <td>
@@ -212,7 +231,7 @@
                     <tr>
                         <td>
                             
-                                <i class="fa-solid fa-medal fa-lg" id="womens_first"></i>
+                                <i class="fa-solid fa-medal fa-lg" id="womens_first" aria-label="First place medal"></i>
                             
                         </td>
                         <td>
@@ -226,7 +245,7 @@
                     <tr>
                         <td>
                             
-                                <i class="fa-solid fa-medal fa-lg" id="womens_second"></i>
+                                <i class="fa-solid fa-medal fa-lg" id="womens_second" aria-label="Second place medal"></i>
                             
                         </td>
                         <td>
@@ -240,7 +259,7 @@
                     <tr>
                         <td>
                             
-                                <i class="fa-solid fa-medal fa-lg" id="womens_third"></i>
+                                <i class="fa-solid fa-medal fa-lg" id="womens_third" aria-label="Third place medal"></i>
                             
                         </td>
                         <td>
