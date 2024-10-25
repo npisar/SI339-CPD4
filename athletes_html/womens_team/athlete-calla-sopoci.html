@@ -23,48 +23,48 @@
     </head>
     <body>
         <header>
-        <a href="../../index.html" class="nav-home-button"><i class="fa-solid fa-house" aria-label="home button"></i></a>
+            <a href="index.html" class="nav-home-button"><i class="fa-solid fa-house" aria-label="home button"></i>Home</a>
+    
+            <details class="color-options-section">
+                <summary class="color-options-menu">Color Options<i class="fa-solid fa-bars" aria-label="Color options menu"></i></summary>
+                <button class="dark-mode-toggle" onclick="darkModeToggle()"><i class="fa-solid fa-moon"></i></button>
+                <button class="high-contrast-mode-toggle" onclick="highContrastModeToggle()"><i class="fa-solid fa-circle-half-stroke"></i></button>
+            </details>
+
+            <script>
+                function darkModeToggle() {
+                var element = document.body;
+                    if (element.classList.contains("high-contrast-mode")) {
+                            element.classList.toggle("high-contrast-mode");
+                            element.classList.toggle("dark-mode");
+                        }
+                    else {
+                        (element.classList.toggle("dark-mode"));
+                        }
+                }
         
-        <details class="color-options-section">
-            <summary class="color-options-menu"><i class="fa-solid fa-bars" aria-label="Color options menu"></i></summary>
-            <button class="dark-mode-toggle" onclick="darkModeToggle()"><i class="fa-solid fa-moon"></i></button>
-            <button class="high-contrast-mode-toggle" onclick="highContrastModeToggle()"><i class="fa-solid fa-circle-half-stroke"></i></button>
-        </details>
-
-        <script>
-            function darkModeToggle() {
-             var element = document.body;
-                 if (element.classList.contains("high-contrast-mode")) {
-                         element.classList.toggle("high-contrast-mode");
-                         element.classList.toggle("dark-mode");
-                     }
-                 else {
-                     (element.classList.toggle("dark-mode"));
-                     }
-            }
-     
-             function highContrastModeToggle() {
-             var element = document.body;
-                 if (element.classList.contains("dark-mode")) {
-                     element.classList.toggle("dark-mode");
-                     element.classList.toggle("high-contrast-mode");
-                     }
-                 else {
-                     (element.classList.toggle("high-contrast-mode"));
-                     }
-             }
-        </script>
+                function highContrastModeToggle() {
+                var element = document.body;
+                    if (element.classList.contains("dark-mode")) {
+                        element.classList.toggle("dark-mode");
+                        element.classList.toggle("high-contrast-mode");
+                        }
+                    else {
+                        (element.classList.toggle("high-contrast-mode"));
+                        }
+                }
+            </script>
      
 
-        <!-- Accessible search form with hidden label and icon button -->
-        <form action="#" method="get" class="search-form">
-            <label for="search-input" class="sr-only">Search Athlete</label>
-            <input type="text" id="search-input" placeholder="Search Athlete" name="q">
-            <button type="submit" aria-label="Search">
-                <i class="fas fa-search"></i>
-            </button>
-        </form>
-    </header>
+            <!-- Accessible search form with hidden label and icon button -->
+            <form action="#" method="get" class="search-form">
+                <label for="search-input" class="sr-only">Search Athlete</label>
+                <input type="text" id="search-input" placeholder="Search Athlete" name="q">
+                <button type="submit" aria-label="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </header>
 
         <main>
             <section class="profile-header">
