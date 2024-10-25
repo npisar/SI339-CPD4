@@ -351,11 +351,11 @@ header {
 }
 
 .dark-mode-toggle, .high-contrast-mode-toggle {
-    display: block;
+    display: inline-block;
     justify-self: end;
-    width: 3em;
-    height: 3em;
-    border-radius: 50%;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 1em;
     margin: 0.5em 0 0.5em 0;
 }
 
@@ -365,6 +365,18 @@ header {
 
 .high-contrast-mode-toggle {
     grid-row-start: 2;
+}
+
+.color-options-menu .fa-bars {
+    padding-left: 0.5em;
+}
+
+.dark-mode-toggle .fa-moon, .high-contrast-mode-toggle .fa-circle-half-stroke {
+    padding-left: 0.5em;
+}
+
+.nav-home-button .fa-house {
+    padding-right: 0.5em;
 }
 
 /* ############################################
@@ -447,11 +459,13 @@ header {
 }
 
 header .nav-home-button {
-    grid-column-start: 1;
+    grid-column-start: 2;
+    justify-self: centert;
 }
 
 header .color-options-menu {
     grid-column-start: 4;
+    justify-self: center;
 }
 
 
