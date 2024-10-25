@@ -26,7 +26,7 @@
 .high-contrast-mode {
     --primary-color: #ffffff;
     --surface-color: #121212;
-    --secondary-color: #ff0090;
+    --secondary-color: #00eaff;
     --03: rgba(255, 255, 255, 0)
     --07: rgba(255, 255, 255, 0);
     --09: rgba(255, 255, 255, 0);
@@ -42,7 +42,6 @@
 /* base styles */
 body {
     font-family: 'Roboto', sans-serif;
-    font-size: 14pt;
     margin: 0;
     padding: 0;
     background-color: var(--surface-color);
@@ -72,7 +71,7 @@ a {
     width: 50%;
 }
 
-footer a{
+footer a {
     cursor: pointer;
 }
 
@@ -137,7 +136,13 @@ body.high-contrast-mode > main > section > summary {
     background-color: black;
 }
 
+body.high-contrast-mode > main > section > details > summary {
+    color: black;
+}
 
+body.high-contrast-mode > main > section > div > a {
+    color: black;
+}
 
 /* ############################################
 ###############################################
@@ -241,17 +246,12 @@ button:hover, .nav-home-button:hover, .color-options-menu:hover{
 ############################################ */
 /* tables */
 table {
-    width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
-    margin-bottom: 20px;
     overflow: hidden;
 }
 
 th, td, li {
-    padding: 10px;
     text-align: center;
-    font-size: 0.9em;
     color: var(--primary-color);
 }
 
@@ -406,8 +406,6 @@ main {
 }
 
 .profile-picture {
-    width: 150px;
-    height: 150px;
     background-color: var(--09);
     border-radius: 50%;
     overflow: hidden;
@@ -454,17 +452,17 @@ main {
 /* grid setup */
 header {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
 }
 
 header .nav-home-button {
-    grid-column-start: 2;
-    justify-self: centert;
+    grid-column-start: 1;
+    justify-self: center;
 }
 
 header .color-options-menu {
-    grid-column-start: 4;
+    grid-column-start: 3;
     justify-self: center;
 }
 
@@ -498,12 +496,26 @@ main .season-notes {
 ############################################ */
 
 
-
-/* OTHER STYLES - old responsive */
 /* mobile styles */
-/* @media screen and (min-width: 200px) {
+@media screen and (min-width: 200px) {
     body {
         font-size: 14px;
+    }
+    
+    table {
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    
+    th, td, li {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .profile-picture {
+        width: 150px;
+        height: 150px;
     }
 }
 
