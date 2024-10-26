@@ -419,8 +419,6 @@ main {
 }
 
 .profile-details p {
-    margin-top: 5px;
-    font-size: 1.2em;
     color: var(--primary-color);
 }
 
@@ -494,8 +492,29 @@ main .season-notes {
 /* ############################################
 ###############################################
 ############################################ */
+/* reduced motion */
+@media (prefers-reduced-motion) {
+    details[open] > *:not(summary) {
+        animation: details-show 0ms linear;
+    }
+    
+    button, .nav-home-button, .color-options-menu{
+        transition: 0s color linear;
+        transition: 0s background-color linear;
+    }
+    
+    details summary {
+        transition: 0s color linear;
+        transition: 0s background-color linear;
+    }
+}
 
 
+
+
+/* ############################################
+###############################################
+############################################ */
 /* mobile styles */
 @media screen and (min-width: 200px) {
     body {
@@ -516,6 +535,11 @@ main .season-notes {
     .profile-picture {
         width: 150px;
         height: 150px;
+    }
+
+    .profile-details p {
+        margin-top: 5px;
+        font-size: 1.2em;
     }
 }
 
