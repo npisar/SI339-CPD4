@@ -34,9 +34,9 @@ def extract_athlete_info(data):
     
     try:
         with open(f"images/profiles/{athlete_id}.jpg", 'r') as file:
-            athlete_photo = f"../../../images/profiles/{athlete_id}.jpg"
+            athlete_photo = f"https://github.com/npisar/SI339-CPD3/blob/main/images/profiles/{athlete_id}.jpg"
     except:
-        athlete_photo = f"../../../images/default_image.jpg"
+        athlete_photo = f"https://github.com/npisar/SI339-CPD3/blob/main/images/default_image.jpg"
 
     return athlete_name, athlete_id, athlete_link, athlete_grade, athlete_photo
 
