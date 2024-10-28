@@ -139,7 +139,14 @@ def process_team_csvs(team_dir, team_output_dir):
                 athlete_grade = str(athlete_grade)
                 athlete_grade += "th Grade"
 
-            athlete_filename = f"athlete-{(athlete_name.split()[0]+"-"+athlete_name.split()[1]).lower()}"
+            if len(athlete_name.split()) > 2:
+                athlete_filename_raw = f"athlete-"
+                for i in range(len(athlete_name.split())):
+                    athlete_filename_raw += f"{athlete_name.split()[i].lower()}-"
+                athlete_filename = athlete_filename_raw[:-1]
+                # print(f"athlete_filename with longer than 2 index is {athlete_filename}!")
+            else:
+                athlete_filename = f"athlete-{(athlete_name.split()[0]+"-"+athlete_name.split()[1]).lower()}"
             # print(f"athlete_filename is {athlete_filename}")
 
             # Extract records and races
