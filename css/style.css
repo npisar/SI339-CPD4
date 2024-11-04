@@ -34,6 +34,7 @@
     --15: rgba(255, 255, 255, 0);
 }
 
+/* automatically determine color scheme based on preference */
 @media (prefers-color-scheme: dark) {
     :root {
         --primary-color: #ffffff;
@@ -44,10 +45,6 @@
         --09: rgba(255, 255, 255, 0.09);
         --12: rgba(255, 255, 255, 0.12);
         --15: rgba(255, 255, 255, 0.15);
-    }
-
-    .dark-mode-toggle {
-        display: none;
     }
 }
 
