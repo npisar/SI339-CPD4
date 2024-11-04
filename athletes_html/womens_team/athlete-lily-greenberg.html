@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- link to stylesheets -->
-    <link rel="stylesheet" href="../../css/reset.css">
-    <link rel="stylesheet" href="../../css/style.css">
+    <!-- link to the lightbox -->
+    <link href="../../dist/css/lightbox.css" rel="stylesheet">
 
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -18,6 +17,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- link to stylesheets -->
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/style.css">
 
     <title>Athlete Profile - Lily Greenberg</title>
     </head>
@@ -59,7 +62,9 @@
         <main>
             <section class="profile-header">
                 <div class="profile-picture">
-                    <img src="https://raw.githubusercontent.com/npisar/SI339-CPD3/refs/heads/main/images/profiles/23687875.jpg" alt="Profile picture of Lily Greenberg">
+                    <a href="https://raw.githubusercontent.com/npisar/SI339-CPD3/refs/heads/main/images/profiles/23687875.jpg" target="_blank" data-lightbox="athlete_photo" data-title="Lily Greenberg" data-alt="Profile Picture of Lily Greenberg">
+                        <img src="https://raw.githubusercontent.com/npisar/SI339-CPD3/refs/heads/main/images/profiles/23687875.jpg" alt="Profile picture of Lily Greenberg">
+                    </a>
                 </div>
                 <div class="profile-details">
                     <h1>Lily Greenberg</h1>
@@ -132,5 +137,15 @@
             document.documentElement.scrollTop = 0;
         }
     </script>
+
+    <script src="../../dist/js/lightbox-plus-jquery.js"></script>
+    <script>
+        lightbox.option({
+        'resizeDuration': 200,
+        'wrapAround': true,
+        //   'positionFromTop': 250,
+        })
+    </script>
+
     </body>
     </html>
