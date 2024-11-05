@@ -10,6 +10,31 @@
     --15: rgba(0, 0, 0, 0.15);
 }
 
+/* automatically determine color scheme based on preference */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #ffffff;
+        --surface-color: #121212;
+        --secondary-color: #434ef0;
+        --03: rgba(255, 255, 255, 0.03)
+        --07: rgba(255, 255, 255, 0.07);
+        --09: rgba(255, 255, 255, 0.09);
+        --12: rgba(255, 255, 255, 0.12);
+        --15: rgba(255, 255, 255, 0.15);
+    }
+}
+/* light mode class (same as root) */
+.light-mode {
+    --primary-color: #000000;
+    --surface-color: #f5f9fc;
+    --secondary-color: #434ef0;
+    --03: rgba(0, 0, 0, 0.03)
+    --07: rgba(0, 0, 0, 0.07);
+    --09: rgba(0, 0, 0, 0.09);
+    --12: rgba(0, 0, 0, 0.12);
+    --15: rgba(0, 0, 0, 0.15);
+}
+
 /* dark mode */
 .dark-mode {
     --primary-color: #ffffff;
@@ -32,20 +57,6 @@
     --09: rgba(255, 255, 255, 0);
     --12: rgba(255, 255, 255, 0);
     --15: rgba(255, 255, 255, 0);
-}
-
-/* automatically determine color scheme based on preference */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --primary-color: #ffffff;
-        --surface-color: #121212;
-        --secondary-color: #434ef0;
-        --03: rgba(255, 255, 255, 0.03)
-        --07: rgba(255, 255, 255, 0.07);
-        --09: rgba(255, 255, 255, 0.09);
-        --12: rgba(255, 255, 255, 0.12);
-        --15: rgba(255, 255, 255, 0.15);
-    }
 }
 
 
@@ -363,7 +374,7 @@ header {
     grid-template-rows: 1fr 1fr;
 }
 
-.dark-mode-toggle, .high-contrast-mode-toggle {
+.color-scheme-toggle, .high-contrast-mode-toggle {
     display: inline-block;
     justify-self: end;
     width: fit-content;
@@ -372,7 +383,7 @@ header {
     margin: 0.5em 0 0.5em 0;
 }
 
-.dark-mode-toggle {
+.color-scheme-toggle {
     grid-row-start: 1;
 }
 
@@ -384,7 +395,7 @@ header {
     padding-left: 0.5em;
 }
 
-.dark-mode-toggle .fa-moon, .high-contrast-mode-toggle .fa-circle-half-stroke {
+.color-scheme-toggle .fa-moon, .color-scheme-toggle .fa-sun, .high-contrast-mode-toggle .fa-circle-half-stroke {
     padding-left: 0.5em;
 }
 
@@ -439,7 +450,9 @@ main {
     margin-bottom: 1em;
 }
 
-
+.photo-enlarge-message {
+    font-weight: 500;
+}
 
 
 /* ############################################
@@ -525,36 +538,59 @@ main .season-notes {
 
 
 
+
+/* ############################################
+###############################################
+############################################ */
+/* lightbox */
+.lb-data > .lb-details > span.lb-caption {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1.4em;
+    color: var(--primary-color);
+}
+
+
+
+
+
 /* ############################################
 ###############################################
 ############################################ */
 /* mobile styles */
-@media screen and (min-width: 200px) {
-    body {
-        font-size: 14px;
-    }
-    
-    table {
-        width: 100%;
-        margin-top: 10px;
-        margin-bottom: 20px;
-    }
-    
-    th, td, li {
-        padding: 10px;
-        font-size: 0.9em;
-    }
-
-    .profile-picture {
-        width: 150px;
-        height: 150px;
-    }
-
-    .profile-details p {
-        margin-top: 5px;
-        font-size: 1.2em;
-    }
+body {
+    font-size: 14px;
 }
+
+table {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+th, td, li {
+    padding: 10px;
+    font-size: 0.9em;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+}
+
+.profile-details h2 {
+    margin-top: 5px;
+    font-size: 1.2em;
+    color: var(--primary-color);
+}
+
+.profile-details p {
+    margin-top: 5px;
+    font-size: 0.8em;
+    color: var(--primary-color);
+}
+
+
 
 /* small tablet styles */
 /* @media screen and (min-width: 620px) {

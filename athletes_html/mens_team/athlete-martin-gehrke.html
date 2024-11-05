@@ -29,46 +29,93 @@
             <a href="../../index.html" class="nav-home-button"><i class="fa-solid fa-house"></i> Home</a>
             <div class="spacer"></div>
             <details class="color-options-section">
-                <summary class="color-options-menu">Color Options <i class="fa-solid fa-bars"></i></summary>
-                <button class="dark-mode-toggle" onclick="darkModeToggle()">Dark Mode <i class="fa-solid fa-moon"></i></button>
-                <button class="high-contrast-mode-toggle" onclick="highContrastModeToggle()">High Contrast Mode <i class="fa-solid fa-circle-half-stroke"></i></button>
+                <summary class="color-options-menu">Color Options<i class="fa-solid fa-bars"></i></summary>
+                <button class="color-scheme-toggle" onclick="colorSchemeToggle()">Color Scheme Toggle</button>
+                <button class="high-contrast-mode-toggle" onclick="highContrastModeToggle()">High Contrast Mode<i class="fa-solid fa-circle-half-stroke"></i></button>
             </details>
-
+    
             <script>
-                function darkModeToggle() {
-                var element = document.body;
-                    if (element.classList.contains("high-contrast-mode")) {
-                            element.classList.toggle("high-contrast-mode");
-                            element.classList.toggle("dark-mode");
-                        }
-                    else {
-                        (element.classList.toggle("dark-mode"));
-                        }
-                }
+                // Toggle between light and dark modes based on user preference
+                function colorSchemeToggle() {
+                const body = document.body;
+                const colorSchemeToggleButton = document.querySelector(".color-scheme-toggle");
         
-                function highContrastModeToggle() {
-                var element = document.body;
-                    if (element.classList.contains("dark-mode")) {
-                        element.classList.toggle("dark-mode");
-                        element.classList.toggle("high-contrast-mode");
-                        }
-                    else {
-                        (element.classList.toggle("high-contrast-mode"));
-                        }
+                // Check if dark mode or high contrast mode is currently active
+                if (body.classList.contains("high-contrast-mode")) {
+                    
+                    if (body.classList.contains("dark-mode")) {
+                        body.classList.remove("high-contrast-mode");
+                        body.classList.remove("dark-mode");
+                        body.classList.add("light-mode");
+                        colorSchemeToggleButton.innerHTML = 'Dark Mode<i class="fa-solid fa-moon"></i>';
+                    } else {
+                        body.classList.remove("high-contrast-mode");
+                        body.classList.remove("light-mode");
+                        body.classList.add("dark-mode");
+                        colorSchemeToggleButton.innerHTML = 'Light Mode<i class="fa-solid fa-sun"></i>';
+                    }
                 }
+                
+                if (body.classList.contains("dark-mode")) {
+                    body.classList.remove("dark-mode");
+                    body.classList.add("light-mode");
+                    colorSchemeToggleButton.innerHTML = 'Dark Mode<i class="fa-solid fa-moon"></i>';
+                } else {
+                    body.classList.remove("light-mode");
+                    body.classList.add("dark-mode");
+                    colorSchemeToggleButton.innerHTML = 'Light Mode<i class="fa-solid fa-sun"></i>';
+                }
+            }
+            
+                // Toggle high contrast mode on and off
+                function highContrastModeToggle() {
+                    const body = document.body;
+                    const colorSchemeToggleButton = document.querySelector(".color-scheme-toggle");
+            
+                    if (body.classList.contains("dark-mode")) {
+                        body.classList.remove("dark-mode");
+                    }
+                    if (body.classList.contains("light-mode")) {
+                        body.classList.remove("light-mode");
+                    }
+                    body.classList.toggle("high-contrast-mode");
+                    
+                }
+            
+                // Automatically set color scheme based on user preference
+                document.addEventListener("DOMContentLoaded", function() {
+                    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+            
+                    // Initial mode setup based on preference
+                    if (prefersDarkScheme.matches) {
+                        document.body.classList.add("dark-mode");
+                        document.querySelector(".color-scheme-toggle").innerHTML = 'Light Mode<i class="fa-solid fa-sun"></i>';
+                    } else {
+                        document.body.classList.add("light-mode");
+                        document.querySelector(".color-scheme-toggle").innerHTML = 'Dark Mode<i class="fa-solid fa-moon"></i>';
+                    }
+            
+                    // Listen for system color scheme changes
+                    prefersDarkScheme.addEventListener("change", () => {
+                        if (!document.body.classList.contains("high-contrast-mode")) {
+                            colorSchemeToggle();
+                        }
+                    });
+                });
             </script>
         </header>
-
+            
         <main>
             <section class="profile-header">
                 <div class="profile-picture">
-                    <a href="https://raw.githubusercontent.com/npisar/SI339-CPD3/refs/heads/main/images/profiles/19203161.jpg" target="_blank" data-lightbox="athlete_photo" data-title="Martin Gehrke" data-alt="Profile Picture of Martin Gehrke">
-                        <img src="https://raw.githubusercontent.com/npisar/SI339-CPD3/refs/heads/main/images/profiles/19203161.jpg" alt="Profile picture of Martin Gehrke">
+                    <a href="https://raw.githubusercontent.com/npisar/SI339-CPD3/refs/heads/main/images/profiles/19203161.jpg" target="_blank" data-lightbox="athlete_photo" data-title="Martin Gehrke's Profile Picture" data-alt="Martin Gehrke's profile picture">
+                        <img src="https://raw.githubusercontent.com/npisar/SI339-CPD3/refs/heads/main/images/profiles/19203161.jpg" alt="Martin Gehrke's profile picture">
                     </a>
                 </div>
                 <div class="profile-details">
                     <h1>Martin Gehrke</h1>
-                    <p>9th Grade, Ann Arbor Skyline</p>
+                    <h2>9th Grade, Ann Arbor Skyline</h2>
+                    <p class="photo-enlarge-message">Click on Martin Gehrke's profile picture to enlarge it</p>
                     <a href="https://www.athletic.net/athlete/19203161/cross-country/high-school" class="athletic-link-button" target="_blank" rel="noopener noreferrer">Athletic.net page</a>
                 </div>
             </section>
