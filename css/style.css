@@ -57,6 +57,13 @@
     --09: rgba(255, 255, 255, 0);
     --12: rgba(255, 255, 255, 0);
     --15: rgba(255, 255, 255, 0);
+    body.high-contrast-mode > main > section > details, summary, table {
+        border: 2px solid white;
+    }
+    
+    body.high-contrast-mode > *:not(main) {
+        border: 2px solid white;
+    }
 }
 
 
@@ -148,14 +155,6 @@ p, a {
 ###############################################
 ############################################ */
 /* high contrast mode */
-body.high-contrast-mode > main > section > details, summary, table {
-    border: 2px solid white;
-}
-
-body.high-contrast-mode > *:not(main) {
-    border: 2px solid white;
-}
-
 body.high-contrast-mode > main > section > summary {
     background-color: black;
 }
@@ -167,6 +166,10 @@ body.high-contrast-mode > main > section > details > summary {
 body.high-contrast-mode > main > section > div > a {
     color: black;
 }
+
+
+
+
 
 /* ############################################
 ###############################################
@@ -340,7 +343,6 @@ details summary::-webkit-details-marker {
   }
 
 .data .all-races, .season-records, .season-notes, .season-box {
-    border: 1px solid var(--15);
     background-color: var(--07);
     padding: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
@@ -376,7 +378,7 @@ header {
 
 .color-scheme-toggle, .high-contrast-mode-toggle {
     display: inline-block;
-    justify-self: end;
+    justify-self: center;
     width: fit-content;
     height: fit-content;
     border-radius: 1em;
@@ -549,6 +551,26 @@ main .season-notes {
     font-size: 1.4em;
     color: var(--primary-color);
 }
+
+
+
+
+
+
+
+/* chart */
+.data-chart {
+    width: 90vw; /* Set this to a percentage of the viewport */
+    height: auto;
+    justify-self: center;
+    color: white
+}
+
+.data-chart canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
 
 
 

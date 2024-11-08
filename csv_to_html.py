@@ -74,15 +74,6 @@ def extract_races(data):
             continue
     return races
 
-# Filter 2024 races
-# def filter_2024_races(races):
-#     races_2024 = []
-#     for race in races:
-#         if "Jul" in race["Date"][0:3]:
-#             break
-#         races_2024.append(race)
-#     return races_2024
-
 # Generate dynamic HTML table for races
 def races_table_maker(races_list):
     if not races_list:

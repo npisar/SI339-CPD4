@@ -30,51 +30,61 @@
         </details>
 
         <script>
-            // Toggle between light and dark modes based on user preference
+            let previousColorScheme = 'dark-mode'; // Variable to remember the previous color scheme
+
             function colorSchemeToggle() {
-            const body = document.body;
-            const colorSchemeToggleButton = document.querySelector(".color-scheme-toggle");
-    
-            // Check if dark mode or high contrast mode is currently active
-            if (body.classList.contains("high-contrast-mode")) {
-                
-                if (body.classList.contains("dark-mode")) {
+                const body = document.body;
+                const colorSchemeToggleButton = document.querySelector(".color-scheme-toggle");
+
+                // If high contrast mode is active, switch to the opposite scheme directly
+                if (body.classList.contains("high-contrast-mode")) {
                     body.classList.remove("high-contrast-mode");
-                    body.classList.remove("dark-mode");
-                    body.classList.add("light-mode");
-                    colorSchemeToggleButton.innerHTML = 'Dark Mode<i class="fa-solid fa-moon"></i>';
+
+                    // Switch to the opposite scheme of the current remembered scheme
+                    if (previousColorScheme === 'dark-mode') {
+                        body.classList.remove("dark-mode");
+                        body.classList.add("light-mode");
+                        colorSchemeToggleButton.innerHTML = 'Dark Mode<i class="fa-solid fa-moon"></i>';
+                        previousColorScheme = 'light-mode';
+                    } else {
+                        body.classList.remove("light-mode");
+                        body.classList.add("dark-mode");
+                        colorSchemeToggleButton.innerHTML = 'Light Mode<i class="fa-solid fa-sun"></i>';
+                        previousColorScheme = 'dark-mode';
+                    }
                 } else {
-                    body.classList.remove("high-contrast-mode");
-                    body.classList.remove("light-mode");
-                    body.classList.add("dark-mode");
-                    colorSchemeToggleButton.innerHTML = 'Light Mode<i class="fa-solid fa-sun"></i>';
+                    // Toggle between dark mode and light mode
+                    if (body.classList.contains("dark-mode")) {
+                        body.classList.remove("dark-mode");
+                        body.classList.add("light-mode");
+                        colorSchemeToggleButton.innerHTML = 'Dark Mode<i class="fa-solid fa-moon"></i>';
+                    } else {
+                        body.classList.remove("light-mode");
+                        body.classList.add("dark-mode");
+                        colorSchemeToggleButton.innerHTML = 'Light Mode<i class="fa-solid fa-sun"></i>';
+                    }
+
+                    // Update previous color scheme to reflect current state
+                    previousColorScheme = body.classList.contains("dark-mode") ? 'dark-mode' : 'light-mode';
                 }
             }
-            
-            if (body.classList.contains("dark-mode")) {
-                body.classList.remove("dark-mode");
-                body.classList.add("light-mode");
-                colorSchemeToggleButton.innerHTML = 'Dark Mode<i class="fa-solid fa-moon"></i>';
-            } else {
-                body.classList.remove("light-mode");
-                body.classList.add("dark-mode");
-                colorSchemeToggleButton.innerHTML = 'Light Mode<i class="fa-solid fa-sun"></i>';
-            }
-        }
-        
+
             // Toggle high contrast mode on and off
             function highContrastModeToggle() {
                 const body = document.body;
-                const colorSchemeToggleButton = document.querySelector(".color-scheme-toggle");
-        
-                if (body.classList.contains("dark-mode")) {
-                    body.classList.remove("dark-mode");
+
+                // If high contrast mode is already active, switch back to previous color scheme
+                if (body.classList.contains("high-contrast-mode")) {
+                    body.classList.remove("high-contrast-mode");
+                    body.classList.add(previousColorScheme);
+                } else {
+                    // Save current color scheme before switching to high contrast mode
+                    previousColorScheme = body.classList.contains("dark-mode") ? 'dark-mode' : 'light-mode';
+
+                    // Clear all classes and apply high contrast mode
+                    body.className = '';
+                    body.classList.add("high-contrast-mode");
                 }
-                if (body.classList.contains("light-mode")) {
-                    body.classList.remove("light-mode");
-                }
-                body.classList.toggle("high-contrast-mode");
-                
             }
         
             // Automatically set color scheme based on user preference
@@ -175,7 +185,7 @@
         <div class="fullwidth">
             <p>Designed by:</p>
             <p>Kaelyn Lin, Nick Pisarczyk, and Aditya Tambe</p>
-            <p>Updated for CPD3 by Nick Pisarczyk</p>
+            <p>Updated for CPD3 and CPD4 by Nick Pisarczyk</p>
         </div>
     </footer>
 

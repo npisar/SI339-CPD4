@@ -18,6 +18,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
+    <!-- Link to Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <!-- link to stylesheets -->
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/style.css">
@@ -35,51 +38,61 @@
             </details>
     
             <script>
-                // Toggle between light and dark modes based on user preference
+                let previousColorScheme = 'dark-mode'; // Variable to remember the previous color scheme
+
                 function colorSchemeToggle() {
-                const body = document.body;
-                const colorSchemeToggleButton = document.querySelector(".color-scheme-toggle");
-        
-                // Check if dark mode or high contrast mode is currently active
-                if (body.classList.contains("high-contrast-mode")) {
-                    
-                    if (body.classList.contains("dark-mode")) {
+                    const body = document.body;
+                    const colorSchemeToggleButton = document.querySelector(".color-scheme-toggle");
+
+                    // If high contrast mode is active, switch to the opposite scheme directly
+                    if (body.classList.contains("high-contrast-mode")) {
                         body.classList.remove("high-contrast-mode");
-                        body.classList.remove("dark-mode");
-                        body.classList.add("light-mode");
-                        colorSchemeToggleButton.innerHTML = 'Dark Mode<i class="fa-solid fa-moon"></i>';
+
+                        // Switch to the opposite scheme of the current remembered scheme
+                        if (previousColorScheme === 'dark-mode') {
+                            body.classList.remove("dark-mode");
+                            body.classList.add("light-mode");
+                            colorSchemeToggleButton.innerHTML = 'Dark Mode<i class="fa-solid fa-moon"></i>';
+                            previousColorScheme = 'light-mode';
+                        } else {
+                            body.classList.remove("light-mode");
+                            body.classList.add("dark-mode");
+                            colorSchemeToggleButton.innerHTML = 'Light Mode<i class="fa-solid fa-sun"></i>';
+                            previousColorScheme = 'dark-mode';
+                        }
                     } else {
-                        body.classList.remove("high-contrast-mode");
-                        body.classList.remove("light-mode");
-                        body.classList.add("dark-mode");
-                        colorSchemeToggleButton.innerHTML = 'Light Mode<i class="fa-solid fa-sun"></i>';
+                        // Toggle between dark mode and light mode
+                        if (body.classList.contains("dark-mode")) {
+                            body.classList.remove("dark-mode");
+                            body.classList.add("light-mode");
+                            colorSchemeToggleButton.innerHTML = 'Dark Mode<i class="fa-solid fa-moon"></i>';
+                        } else {
+                            body.classList.remove("light-mode");
+                            body.classList.add("dark-mode");
+                            colorSchemeToggleButton.innerHTML = 'Light Mode<i class="fa-solid fa-sun"></i>';
+                        }
+
+                        // Update previous color scheme to reflect current state
+                        previousColorScheme = body.classList.contains("dark-mode") ? 'dark-mode' : 'light-mode';
                     }
                 }
-                
-                if (body.classList.contains("dark-mode")) {
-                    body.classList.remove("dark-mode");
-                    body.classList.add("light-mode");
-                    colorSchemeToggleButton.innerHTML = 'Dark Mode<i class="fa-solid fa-moon"></i>';
-                } else {
-                    body.classList.remove("light-mode");
-                    body.classList.add("dark-mode");
-                    colorSchemeToggleButton.innerHTML = 'Light Mode<i class="fa-solid fa-sun"></i>';
-                }
-            }
-            
+
                 // Toggle high contrast mode on and off
                 function highContrastModeToggle() {
                     const body = document.body;
-                    const colorSchemeToggleButton = document.querySelector(".color-scheme-toggle");
-            
-                    if (body.classList.contains("dark-mode")) {
-                        body.classList.remove("dark-mode");
+
+                    // If high contrast mode is already active, switch back to previous color scheme
+                    if (body.classList.contains("high-contrast-mode")) {
+                        body.classList.remove("high-contrast-mode");
+                        body.classList.add(previousColorScheme);
+                    } else {
+                        // Save current color scheme before switching to high contrast mode
+                        previousColorScheme = body.classList.contains("dark-mode") ? 'dark-mode' : 'light-mode';
+
+                        // Clear all classes and apply high contrast mode
+                        body.className = '';
+                        body.classList.add("high-contrast-mode");
                     }
-                    if (body.classList.contains("light-mode")) {
-                        body.classList.remove("light-mode");
-                    }
-                    body.classList.toggle("high-contrast-mode");
-                    
                 }
             
                 // Automatically set color scheme based on user preference
@@ -156,6 +169,195 @@
                         <ul><li>2024: Best season performance</li></ul>
                 </details>              
             </section>
+        
+            <section class="data-chart">
+                <canvas id="timeProgressionChart" width="250" height="250"></canvas>
+            
+                <script>
+                    let chartInstance; // Variable to hold the chart instance
+                    
+                    document.addEventListener("DOMContentLoaded", function() {
+                        // Function to get the primary color based on body class
+                        function getPrimaryColor() {
+                            if (document.body.classList.contains('dark-mode')) {
+                                return 'rgba(255, 255, 255, 1)';
+                            } else if (document.body.classList.contains('light-mode')) {
+                                return 'rgba(18, 18, 18, 1)';
+                            } else if (document.body.classList.contains('high-contrast-mode')) {
+                                return 'rgba(255, 255, 255, 1)';
+                            }
+                            return 'rgba(18, 18, 18, 1)'; // Default color if none of the classes match
+                        }
+            
+                        // Function to get chart line and fill color
+                        function getChartColors() {
+                            if (document.body.classList.contains('high-contrast-mode')) {
+                                return {
+                                    chartLine: 'rgba(0, 234, 255, 1)',
+                                    chartFill: 'rgba(0, 234, 255, 0.3)'
+                                };
+                            }
+                            return {
+                                chartLine: 'rgba(67, 78, 240, 1)',
+                                chartFill: 'rgba(67, 78, 240, 0.3)'
+                            };
+                        }
+                        
+                        // Select the table rows
+                        const rows = Array.from(document.querySelector("table").querySelectorAll("tr")).slice(1); // Skip header row
+            
+                        // Initialize arrays to hold the data for dates and times
+                        const dates = [];
+                        const times = [];
+            
+                        // Loop through each row and get the data
+                        rows.reverse().forEach(row => { // Reverse to get the last entry first
+                            const cells = row.querySelectorAll("td");
+                            
+                            // Check if the row has at least 3 cells (for Place, Time, Date)
+                            if (cells.length >= 3) {
+                                const date = cells[2].textContent.trim(); // Extract date
+                                let timeText = cells[1].textContent.trim(); // Extract time
+            
+                                // Extract time value and convert to seconds
+                                const timeParts = timeText.match(/(\d+):(\d+\.\d+)/);
+                                if (timeParts) {
+                                    const minutes = parseInt(timeParts[1]);
+                                    const seconds = parseFloat(timeParts[2]);
+                                    const totalSeconds = minutes * 60 + seconds;
+                                    times.push(totalSeconds); // Store the time in seconds for charting
+                                }
+            
+                                dates.push(date); // Store the date
+                            }
+                        });
+            
+                        // Function to create or update the chart
+                        function createChart() {
+                            const primaryColor = getPrimaryColor();
+                            const { chartLine, chartFill } = getChartColors();
+            
+                            const ctx = document.getElementById("timeProgressionChart").getContext("2d");
+                            chartInstance = new Chart(ctx, {
+                                type: 'line',
+                                data: {
+                                    labels: dates, // x-axis labels (dates)
+                                    datasets: [{
+                                        label: "  Jude Shafer's Progression (minutes : seconds)", // This is the dataset label
+                                        data: times, // y-axis data (times in seconds)
+                                        borderColor: chartLine, // Set border color to chartLine
+                                        backgroundColor: chartFill, // Set background color to chartFill
+                                        fill: true
+                                    }]
+                                },
+                                options: {
+                                    plugins: {
+                                        tooltip: {
+                                            titleColor: primaryColor, // Set tooltip title color to primaryColor
+                                            bodyColor: primaryColor, // Set tooltip body color to primaryColor
+                                            callbacks: {
+                                                label: function(context) {
+                                                    const value = context.raw;
+                                                    const minutes = Math.floor(value / 60);
+                                                    const seconds = (value % 60).toFixed(1);
+                                                    return `Time: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                                                }
+                                            }
+                                        },
+                                        legend: {
+                                            labels: {
+                                                color: primaryColor // Set legend label color to primaryColor
+                                            }
+                                        }
+                                    },
+                                    responsive: true,
+                                    scales: {
+                                        x: {
+                                            title: {
+                                                display: true,
+                                                text: 'Date',
+                                                color: primaryColor, // Set x-axis label color to primaryColor
+                                            },
+                                            ticks: {
+                                                color: primaryColor // Set x-axis tick color to primaryColor
+                                            },
+                                            grid: {
+                                                color: 'rgba(112, 112, 112, 1)',
+                                            }
+                                        },
+                                        y: {
+                                            title: {
+                                                display: true,
+                                                text: 'Time (seconds)',
+                                                color: primaryColor, // Set y-axis label color to primaryColor
+                                            },
+                                            ticks: {
+                                                color: primaryColor, // Set y-axis tick color to primaryColor
+                                                callback: function(value) {
+                                                    const minutes = Math.floor(value / 60);
+                                                    const seconds = (value % 60).toFixed(1);
+                                                    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                                                }
+                                            },
+                                            grid: {
+                                                color: 'rgba(112, 112, 112, 1)',
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+                        }
+            
+                        // Initial chart creation with the current primary color
+                        createChart();
+            
+                        // Function to resize the chart
+                        function resizeChart() {
+                            const screenWidth = window.innerWidth;
+                            const multiplier = 0.5;
+                            const newWidth = screenWidth * multiplier;
+                            const newHeight = newWidth * 0.5;
+                            const canvas = document.getElementById("timeProgressionChart");
+            
+                            // Set new canvas size
+                            canvas.width = newWidth;
+                            canvas.height = newWidth;
+            
+                            // Destroy the existing chart instance
+                            if (chartInstance) {
+                                chartInstance.destroy();
+                            }
+            
+                            // Create a new chart with the updated canvas size
+                            createChart();
+                        }
+            
+                        // Add resize event listener
+                        window.addEventListener("resize", function() {
+                            clearTimeout(window.resizeTimeout);
+                            window.resizeTimeout = setTimeout(resizeChart, 200);
+                        });
+            
+                        // Watch for changes to the body's class attribute
+                        const bodyObserver = new MutationObserver(function() {
+                            // Destroy the existing chart instance
+                            if (chartInstance) {
+                                chartInstance.destroy();
+                            }
+                            // Create a new chart with the updated color
+                            createChart();
+                        });
+            
+                        // Set up the observer to monitor changes to the body element's class attribute
+                        bodyObserver.observe(document.body, {
+                            attributes: true,
+                            attributeFilter: ['class']
+                        });
+                    });
+                </script>
+            </section>
+                      
+
         </main>
 
     <footer>
@@ -163,7 +365,7 @@
         <div class="fullwidth">
             <p>Designed by:</p>
             <p>Kaelyn Lin, Nick Pisarczyk, and Aditya Tambe</p>
-            <p>Updated for CPD3 by Nick Pisarczyk</p>
+            <p>Updated for CPD3 and CPD4 by Nick Pisarczyk</p>
         </div>
     </footer>
 
