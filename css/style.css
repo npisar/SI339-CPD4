@@ -82,7 +82,7 @@ header {
     position: sticky;
     top: 0;
     background-color: var(--secondary-color);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 4px var(--15);
     padding: 15px;
     display: flex;
     justify-content: space-between;
@@ -345,7 +345,7 @@ details summary::-webkit-details-marker {
 .data .all-races, .season-records, .season-notes, .season-box {
     background-color: var(--07);
     padding: 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 4px var(--15);
     border-radius: 10px;
     padding-bottom: 1em;
 }
@@ -364,7 +364,7 @@ header {
     position: sticky;
     top: 0;
     background-color: var(--secondary-color);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 4px var(--15);
     padding: 15px;
     display: flex;
     justify-content: space-between;
@@ -435,7 +435,7 @@ main {
     background-color: var(--09);
     border-radius: 50%;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px var(--15);
 }
 
 .profile-picture img {
@@ -460,16 +460,10 @@ main {
 /* ############################################
 ###############################################
 ############################################ */
-/* icons and graph */
+/* icons  */
 #mens_first, #womens_first, #mens_second, #womens_second, #mens_third, #womens_third {
     color: var(--primary-color);
 }
-
-.progression-graph canvas {
-    width: auto;
-    max-height: 400px; /* Adjust height as needed */
-}
-
 
 
 /* ############################################
@@ -557,7 +551,9 @@ main .season-notes {
 
 
 
-
+/* ############################################
+###############################################
+############################################ */
 /* chart */
 .data-chart {
     width: 90vw; /* Set this to a percentage of the viewport */
@@ -565,12 +561,6 @@ main .season-notes {
     justify-self: center;
     color: white
 }
-
-.data-chart canvas {
-    width: 100% !important;
-    height: 100% !important;
-}
-
 
 
 
@@ -612,27 +602,182 @@ th, td, li {
     color: var(--primary-color);
 }
 
+.athletic-link-button {
+    font-size: 0.8em;
+}
+
 
 
 /* small tablet styles */
-/* @media screen and (min-width: 620px) {
+@media screen and (min-width: 620px) {
     body {
         font-size: 16px;
     }
-} */
+    
+    table {
+        width: 90vw;
+        justify-self: center;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    details, details summary {
+        width: 90vw;
+        justify-self: center;
+    }
+    
+    .profile-header {
+        width: 90vw;
+        justify-self: center;
+        grid-template-columns: 250px 1fr;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0px;
+    }
+
+    .profile-picture {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .profile-details h1 {
+        font-size: 2em;
+    }
+
+    .profile-details h2 {
+        margin-top: 15px;
+        font-size: 1.5em;
+    }
+    
+    .profile-details p {
+        margin-top: 10px;
+        margin-bottom: 8px;
+        font-size: 1em;
+    }
+    
+    .athletic-link-button {
+        font-size: 1em;
+    }
+
+    .data-chart {
+        width: 80vw; /* Set this to a percentage of the viewport */
+        height: auto;
+        justify-self: center;
+        color: white
+    }
+
+}
 
 
 /* large tablet & laptop styles */
-/* @media screen and (min-width: 960px) {
-    body {
-        font-size: 18px;
-    }
-} */
-
-
-/* desktop styles */
-/* @media screen and (mind-width: 1200px) {
+@media screen and (min-width: 960px) {
     body {
         font-size: 20px;
     }
-} */
+    
+    table {
+        width: 85vw;
+        justify-self: center;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    ul {
+        width: 80vw;
+        justify-self: center;
+    }
+
+    details, details summary {
+        width: 85vw;
+        justify-self: center;
+    }
+
+
+    .profile-header {
+        width: 85vw;
+        justify-self: center;
+        grid-template-columns: 350px 1fr;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0px;
+    }
+    
+    .profile-details h1 {
+        font-size: 2.5em;
+    }
+
+    .profile-details h2 {
+        margin-top: 15px;
+        font-size: 2em;
+    }
+    
+    .profile-details p {
+        margin-top: 20px;
+        margin-bottom: 15px;
+        font-size: 1.2em;
+    }
+    
+    .data-chart {
+        width: 75vw; /* Set this to a percentage of the viewport */
+        height: auto;
+        justify-self: center;
+        color: white;
+    }
+}
+
+
+/* desktop styles */
+@media screen and (min-width: 1200px) {
+    body {
+        font-size: 22px;
+    }
+    
+    table {
+        width: 80vw;
+        justify-self: center;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    details, details summary {
+        width: 80vw;
+        justify-self: center;
+    }
+
+
+    .profile-header {
+        width: 80vw;
+        justify-self: center;
+        grid-template-columns: 350px 1fr;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0px;
+    }
+
+    .profile-picture {
+        width: 350px;
+        height: 350px;
+    }
+    
+    .profile-details h1 {
+        font-size: 2.5em;
+    }
+
+    .profile-details h2 {
+        margin-top: 15px;
+        font-size: 2em;
+    }
+    
+    .profile-details p {
+        margin-top: 20px;
+        margin-bottom: 15px;
+        font-size: 1.2em;
+    }
+    
+    .data-chart {
+        width: 75vw; /* Set this to a percentage of the viewport */
+        height: auto;
+        justify-self: center;
+        color: white;
+    }
+}
