@@ -129,7 +129,6 @@ p, a {
 .fullwidth {
     text-align: center;
     justify-content: center;
-    width: 100%;
     background-color: var(--09);   
     line-height: 1;
     padding-left: 1em;
@@ -415,6 +414,9 @@ main {
     padding: 20px;
 }
 
+body {
+    overflow-x: hidden;
+}
 
 
 
@@ -465,6 +467,10 @@ main {
     color: var(--primary-color);
 }
 
+.fa-person, .fa-person-dress, .fa-person-running, .fa-star, .fa-clipboard {
+    margin-right: .5em;
+}
+
 
 /* ############################################
 ###############################################
@@ -472,7 +478,7 @@ main {
 /* grid setup */
 header {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 30vw);
     grid-template-rows: 1fr;
 }
 
@@ -606,6 +612,10 @@ th, td, li {
     font-size: 0.8em;
 }
 
+.skyline-logo {
+    justify-self: center;
+    width: 100px;
+}
 
 
 /* small tablet styles */
@@ -666,6 +676,10 @@ th, td, li {
         color: white
     }
 
+    .skyline-logo {
+        justify-self: center;
+        width: 150px;
+    }
 }
 
 
@@ -723,6 +737,10 @@ th, td, li {
         justify-self: center;
         color: white;
     }
+    .skyline-logo {
+        justify-self: center;
+        width: 200px;
+    }
 }
 
 
@@ -779,5 +797,9 @@ th, td, li {
         height: auto;
         justify-self: center;
         color: white;
+    }
+    .skyline-logo {
+        justify-self: center;
+        width: 300px;
     }
 }

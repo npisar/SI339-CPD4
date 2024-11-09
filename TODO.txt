@@ -1,3 +1,0 @@
-1. Add queries for larger screensizes
-2. turn dark mode button into light mode button if dark mode is default
-3. make sure everything passes wave and axe
