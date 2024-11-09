@@ -67,6 +67,11 @@
 }
 
 
+
+
+
+
+
 /* ############################################
 ###############################################
 ############################################ */
@@ -150,6 +155,9 @@ p, a {
 
 
 
+
+
+
 /* ############################################
 ###############################################
 ############################################ */
@@ -170,11 +178,13 @@ body.high-contrast-mode > main > section > div > a {
 
 
 
+
+
 /* ############################################
 ###############################################
 ############################################ */
 /* buttons */
-button{
+button {
     border: none;
     height: 3em;
     background: var(--surface-color);
@@ -267,6 +277,9 @@ button:hover, .nav-home-button:hover, .color-options-menu:hover{
 
 
 
+
+
+
 /* ############################################
 ###############################################
 ############################################ */
@@ -311,18 +324,17 @@ details summary {
     font-weight: 600;
     color: white;
     text-align: center;
+    justify-self: center;
     
     transition: 0.25s color ease;
     transition: 0.25s background-color ease;
+
+    list-style: none;
 }
 
 details summary:hover {
     color: var(--surface-color);
     background-color: var(--primary-color);
-}
-
-details summary {
-    list-style: none;
 }
   
 details summary::-webkit-details-marker {
@@ -352,6 +364,9 @@ details summary::-webkit-details-marker {
 .season-box {
     margin-bottom: 2em;
 }
+
+
+
 
 
 
@@ -404,6 +419,12 @@ header {
     padding-right: 0.5em;
 }
 
+
+
+
+
+
+
 /* ############################################
 ###############################################
 ############################################ */
@@ -417,6 +438,10 @@ main {
 body {
     overflow-x: hidden;
 }
+
+
+
+
 
 
 
@@ -459,6 +484,11 @@ body {
 }
 
 
+
+
+
+
+
 /* ############################################
 ###############################################
 ############################################ */
@@ -472,13 +502,18 @@ body {
 }
 
 
+
+
+
+
+
 /* ############################################
 ###############################################
 ############################################ */
 /* grid setup */
 header {
     display: grid;
-    grid-template-columns: repeat(3, 30vw);
+    grid-template-columns: repeat(3, 30%);
     grid-template-rows: 1fr;
 }
 
@@ -517,6 +552,11 @@ main .season-notes {
 }
 
 
+
+
+
+
+
 /* ############################################
 ###############################################
 ############################################ */
@@ -541,6 +581,8 @@ main .season-notes {
 
 
 
+
+
 /* ############################################
 ###############################################
 ############################################ */
@@ -557,16 +599,19 @@ main .season-notes {
 
 
 
+
 /* ############################################
 ###############################################
 ############################################ */
 /* chart */
 .data-chart {
-    width: 90vw; /* Set this to a percentage of the viewport */
+    width: 90%; /* Set this to a percentage of the viewport */
     height: auto;
     justify-self: center;
     color: white
 }
+
+
 
 
 
@@ -584,11 +629,17 @@ table {
     width: 100%;
     margin-top: 10px;
     margin-bottom: 20px;
+    justify-self: center;
 }
 
 th, td, li {
     padding: 10px;
     font-size: 0.9em;
+}
+
+details {
+    width: 90%;
+    justify-self: center;
 }
 
 .profile-picture {
@@ -618,6 +669,7 @@ th, td, li {
 }
 
 
+
 /* small tablet styles */
 @media screen and (min-width: 620px) {
     body {
@@ -625,19 +677,17 @@ th, td, li {
     }
     
     table {
-        width: 90vw;
-        justify-self: center;
+        width: 90%;
         margin-top: 10px;
         margin-bottom: 20px;
     }
 
-    details, details summary {
-        width: 90vw;
-        justify-self: center;
+    details {
+        width: 90%;
     }
     
     .profile-header {
-        width: 90vw;
+        width: 90%;
         justify-self: center;
         grid-template-columns: 250px 1fr;
         align-items: center;
@@ -670,7 +720,7 @@ th, td, li {
     }
 
     .data-chart {
-        width: 80vw; /* Set this to a percentage of the viewport */
+        width: 80%; /* Set this to a percentage of the viewport */
         height: auto;
         justify-self: center;
         color: white
@@ -683,6 +733,7 @@ th, td, li {
 }
 
 
+
 /* large tablet & laptop styles */
 @media screen and (min-width: 960px) {
     body {
@@ -690,25 +741,23 @@ th, td, li {
     }
     
     table {
-        width: 85vw;
-        justify-self: center;
+        width: 85%;
         margin-top: 10px;
         margin-bottom: 20px;
     }
 
     ul {
-        width: 80vw;
+        width: 80%;
         justify-self: center;
     }
 
-    details, details summary {
-        width: 85vw;
-        justify-self: center;
+    details {
+        width: 85%;
     }
 
 
     .profile-header {
-        width: 85vw;
+        width: 85%;
         justify-self: center;
         grid-template-columns: 350px 1fr;
         align-items: center;
@@ -732,7 +781,7 @@ th, td, li {
     }
     
     .data-chart {
-        width: 75vw; /* Set this to a percentage of the viewport */
+        width: 75%; /* Set this to a percentage of the viewport */
         height: auto;
         justify-self: center;
         color: white;
@@ -744,6 +793,7 @@ th, td, li {
 }
 
 
+
 /* desktop styles */
 @media screen and (min-width: 1200px) {
     body {
@@ -751,20 +801,18 @@ th, td, li {
     }
     
     table {
-        width: 80vw;
-        justify-self: center;
+        width: 80%;
         margin-top: 10px;
         margin-bottom: 20px;
     }
 
-    details, details summary {
-        width: 80vw;
-        justify-self: center;
+    details {
+        width: 80%;
     }
 
 
     .profile-header {
-        width: 80vw;
+        width: 80%;
         justify-self: center;
         grid-template-columns: 350px 1fr;
         align-items: center;
@@ -793,7 +841,7 @@ th, td, li {
     }
     
     .data-chart {
-        width: 75vw; /* Set this to a percentage of the viewport */
+        width: 75%; /* Set this to a percentage of the viewport */
         height: auto;
         justify-self: center;
         color: white;
