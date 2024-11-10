@@ -1,5 +1,5 @@
 /* variables */
-:root{
+:root, .light-mode {
     --primary-color: #000000;
     --surface-color: #f5f9fc;
     --secondary-color: #434ef0;
@@ -22,17 +22,6 @@
         --12: rgba(255, 255, 255, 0.12);
         --15: rgba(255, 255, 255, 0.15);
     }
-}
-/* light mode class (same as root) */
-.light-mode {
-    --primary-color: #000000;
-    --surface-color: #f5f9fc;
-    --secondary-color: #434ef0;
-    --03: rgba(0, 0, 0, 0.03)
-    --07: rgba(0, 0, 0, 0.07);
-    --09: rgba(0, 0, 0, 0.09);
-    --12: rgba(0, 0, 0, 0.12);
-    --15: rgba(0, 0, 0, 0.15);
 }
 
 /* dark mode */
@@ -131,6 +120,10 @@ p, a {
     color: var(--primary-color);
 }
 
+ul {
+    justify-self: center;
+}
+
 .fullwidth {
     text-align: center;
     justify-content: center;
@@ -184,83 +177,39 @@ body.high-contrast-mode > main > section > div > a {
 ###############################################
 ############################################ */
 /* buttons */
-button {
+button, .nav-home-button, .color-options-menu, .athletic-link-button {
     border: none;
-    height: 3em;
+    width: fit-content;
+    height: fit-content;
     background: var(--surface-color);
     color: var(--primary-color);
+    font-size: 1.2em;
     font-weight: 600;
-    padding: 15px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 0.5em;
-}
-
-.nav-home-button{
-    border: none;
-    background: var(--surface-color);
-    color: var(--primary-color);
-    font-weight: 600;
-    padding: 15px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: flex;
+    padding: 1em;
     justify-content: center;
     align-items: center;
-    height: fit-content;
-    width: fit-content;
+    text-align: center;
+    text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 1em;
-    justify-self: start;
 }
 
-.color-options-menu{
-    border: none;
-    background: var(--surface-color);
-    color: var(--primary-color);
-    font-weight: 600;
-    padding: 15px 15px;
-    text-align: center;
-    text-decoration: none;
+.nav-home-button, .color-options-menu{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: fit-content;
-    width: fit-content;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 1em;
-    justify-self: end;
 }
-
 
 .athletic-link-button {
     display: inline-block;
-    text-align: center;
     margin-top: 10px;
-    padding: 8px 12px;
-    text-decoration: none;
     background-color: var(--secondary-color);
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: fit-content;
 }
 
 .athletic-link-button:hover {
     background-color: var(--primary-color);
     color: var(--surface-color);
 }
-
-/* .dark-mode .athletic-link-button:hover {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-} */
 
 /* smooth transition */
 button, .nav-home-button, .color-options-menu{
@@ -517,12 +466,12 @@ header {
     grid-template-rows: 1fr;
 }
 
-header .nav-home-button {
+.nav-home-button {
     grid-column-start: 1;
     justify-self: center;
 }
 
-header .color-options-menu {
+.color-options-menu {
     grid-column-start: 3;
     justify-self: center;
 }
@@ -642,6 +591,11 @@ details {
     justify-self: center;
 }
 
+.profile-header {
+    justify-self: center;
+    align-items: center;
+}
+
 .profile-picture {
     width: 150px;
     height: 150px;
@@ -668,6 +622,11 @@ details {
     width: 100px;
 }
 
+.data-chart {
+    justify-self: center;
+    height: auto;
+}
+
 
 
 /* small tablet styles */
@@ -675,22 +634,18 @@ details {
     body {
         font-size: 16px;
     }
-    
-    table {
+
+    table, details, .profile-header {
         width: 90%;
+    }
+
+    table {
         margin-top: 10px;
         margin-bottom: 20px;
     }
 
-    details {
-        width: 90%;
-    }
-    
     .profile-header {
-        width: 90%;
-        justify-self: center;
         grid-template-columns: 250px 1fr;
-        align-items: center;
         gap: 20px;
         padding: 20px 0px;
     }
@@ -720,14 +675,10 @@ details {
     }
 
     .data-chart {
-        width: 80%; /* Set this to a percentage of the viewport */
-        height: auto;
-        justify-self: center;
-        color: white
+        width: 80%;
     }
 
     .skyline-logo {
-        justify-self: center;
         width: 150px;
     }
 }
@@ -740,29 +691,17 @@ details {
         font-size: 20px;
     }
     
-    table {
+    table, details, .profile-header {
         width: 85%;
+    }
+
+    table {
         margin-top: 10px;
         margin-bottom: 20px;
     }
 
-    ul {
-        width: 80%;
-        justify-self: center;
-    }
-
-    details {
-        width: 85%;
-    }
-
-
     .profile-header {
-        width: 85%;
-        justify-self: center;
         grid-template-columns: 350px 1fr;
-        align-items: center;
-        gap: 20px;
-        padding: 20px 0px;
     }
     
     .profile-details h1 {
@@ -781,13 +720,10 @@ details {
     }
     
     .data-chart {
-        width: 75%; /* Set this to a percentage of the viewport */
-        height: auto;
-        justify-self: center;
-        color: white;
+        width: 75%;
     }
+
     .skyline-logo {
-        justify-self: center;
         width: 200px;
     }
 }
@@ -800,24 +736,17 @@ details {
         font-size: 22px;
     }
     
-    table {
+    table, details, .profile-header {
         width: 80%;
+    }
+
+    table {
         margin-top: 10px;
         margin-bottom: 20px;
     }
 
-    details {
-        width: 80%;
-    }
-
-
     .profile-header {
-        width: 80%;
-        justify-self: center;
         grid-template-columns: 350px 1fr;
-        align-items: center;
-        gap: 20px;
-        padding: 20px 0px;
     }
 
     .profile-picture {
@@ -840,14 +769,8 @@ details {
         font-size: 1.2em;
     }
     
-    .data-chart {
-        width: 75%; /* Set this to a percentage of the viewport */
-        height: auto;
-        justify-self: center;
-        color: white;
-    }
+
     .skyline-logo {
-        justify-self: center;
         width: 300px;
     }
 }
