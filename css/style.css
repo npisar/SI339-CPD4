@@ -524,6 +524,15 @@ main .season-notes {
         transition: 0s color linear;
         transition: 0s background-color linear;
     }
+
+    header {
+        transform-origin: top center;
+        transition: height 0s ease, transform 0s ease;
+    }
+    
+    #scroll-scale {
+        transition: height 0s ease, width 0s ease, transform 0s ease;
+    }
 }
 
 
