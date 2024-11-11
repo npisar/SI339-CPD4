@@ -29,12 +29,12 @@
     </head>
     <body>
         <header>
-            <a href="../../index.html" class="nav-home-button" id="scroll-scale"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="../../index.html" class="nav-home-button" id="scroll-scale" tabindex="1"><i class="fa-solid fa-house"></i> Home</a>
             <img class="skyline-logo" id="scroll-scale" src="https://raw.githubusercontent.com/npisar/SI339-CPD4/refs/heads/main/skyline-logo/skyline-logo-light.png" alt="Ann Arbor Skyline Eagles Logo">
-            <details class="color-options-section" id="scroll-scale">
-                <summary class="color-options-menu">Color Options<i class="fa-solid fa-bars"></i></summary>
-                <button class="color-scheme-toggle" onclick="colorSchemeToggle()">Color Scheme Toggle</button>
-                <button class="high-contrast-mode-toggle" onclick="highContrastModeToggle()">High Contrast Mode<i class="fa-solid fa-circle-half-stroke"></i></button>
+            <details class="color-options-section" id="scroll-scale" tabindex="2">
+                <summary class="color-options-menu">Color Options<i class="fa-solid fa-bars" tabindex="3"></i></summary>
+                <button class="color-scheme-toggle" onclick="colorSchemeToggle()" tabindex="4">Color Scheme Toggle</button>
+                <button class="high-contrast-mode-toggle" onclick="highContrastModeToggle()" tabindex="5">High Contrast Mode<i class="fa-solid fa-circle-half-stroke"></i></button>
             </details>
     
             <script>
@@ -143,17 +143,17 @@
 <th>Date</th>
 <th>Meet</th>
 </tr>
-<tr><td>3 </td><td>18:13.2</td><td>Sep 7</td><td>Bret Clements Bath Invitational (J.V.)</td></tr>
-<tr><td>32 </td><td>17:52.6</td><td>Sep 10</td><td>SEC Jamboree #1 (Varsity)</td></tr>
-<tr><td>63 </td><td>17:44.4 SR</td><td>Sep 14</td><td>56th Holly-Duane Raffin Festival of Races (D1 Boys)</td></tr>
-<tr><td>16 </td><td>19:00.5</td><td>Sep 9</td><td>Bret Clements Bath Invitational (J.V.)</td></tr>
-<tr><td>94 </td><td>19:11.2</td><td>Sep 13</td><td>SEC-HS Jamboree 1 (Red/White Varsity Boys)</td></tr>
-<tr><td>110 </td><td>18:45.6</td><td>Sep 16</td><td>55th Holly/Duane Raffin Festival of Races (D1 Boys)</td></tr>
-<tr><td>8 </td><td>17:53.0</td><td>Sep 27</td><td>SEC Jamboree 2 (Red) (Reserve Wave 1 (<21:00))</td></tr>
-<tr><td>205 </td><td>17:57.6</td><td>Oct 7</td><td>2023 Portage XC Invitational (Division 1)</td></tr>
-<tr><td>83 </td><td>18:55.8</td><td>Oct 14</td><td>39th Fr Gabriel Richard Cross Country Invite (Varsity Large School)</td></tr>
-<tr><td>8 </td><td>17:52.3</td><td>Oct 28</td><td>Post Regional Open Meet (PROM) - Springfiled Oaks</td></tr>
-<tr><td>224 </td><td>17:20.8PR</td><td>Nov 4</td><td>MHSAA LP Division 1 Finals</td></tr>
+<tr tabindex="6"><td>3 </td><td>18:13.2</td><td>Sep 7</td><td>Bret Clements Bath Invitational (J.V.)</td></tr>
+<tr tabindex="7"><td>32 </td><td>17:52.6</td><td>Sep 10</td><td>SEC Jamboree #1 (Varsity)</td></tr>
+<tr tabindex="8"><td>63 </td><td>17:44.4 SR</td><td>Sep 14</td><td>56th Holly-Duane Raffin Festival of Races (D1 Boys)</td></tr>
+<tr tabindex="9"><td>16 </td><td>19:00.5</td><td>Sep 9</td><td>Bret Clements Bath Invitational (J.V.)</td></tr>
+<tr tabindex="10"><td>94 </td><td>19:11.2</td><td>Sep 13</td><td>SEC-HS Jamboree 1 (Red/White Varsity Boys)</td></tr>
+<tr tabindex="11"><td>110 </td><td>18:45.6</td><td>Sep 16</td><td>55th Holly/Duane Raffin Festival of Races (D1 Boys)</td></tr>
+<tr tabindex="12"><td>8 </td><td>17:53.0</td><td>Sep 27</td><td>SEC Jamboree 2 (Red) (Reserve Wave 1 (<21:00))</td></tr>
+<tr tabindex="13"><td>205 </td><td>17:57.6</td><td>Oct 7</td><td>2023 Portage XC Invitational (Division 1)</td></tr>
+<tr tabindex="14"><td>83 </td><td>18:55.8</td><td>Oct 14</td><td>39th Fr Gabriel Richard Cross Country Invite (Varsity Large School)</td></tr>
+<tr tabindex="15"><td>8 </td><td>17:52.3</td><td>Oct 28</td><td>Post Regional Open Meet (PROM) - Springfiled Oaks</td></tr>
+<tr tabindex="16"><td>224 </td><td>17:20.8PR</td><td>Nov 4</td><td>MHSAA LP Division 1 Finals</td></tr>
 </table>
 
                 </details>
@@ -165,12 +165,12 @@
 <th>Grade</th>
 <th>Time</th>
 </tr>
-<tr>
+<tr tabindex="150">
 <td>2023</td>
 <td>9</td>
 <td>17:20.8PR</td>
 </tr>
-<tr>
+<tr tabindex="151">
 <td>2024</td>
 <td>10</td>
 <td>17:44.4</td>
@@ -184,7 +184,7 @@
                 </details>              
             </section>
         
-            <section class="data-chart">
+            <section class="data-chart" tabindex="155">
                 <canvas id="timeProgressionChart" width="250" height="250"></canvas>
             
                 <script>

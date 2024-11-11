@@ -21,12 +21,12 @@
 </head>
 <body>
     <header>
-        <a href="../../index.html" class="nav-home-button" id="scroll-scale"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../../index.html" class="nav-home-button" id="scroll-scale" tabindex="1"><i class="fa-solid fa-house"></i> Home</a>
         <img class="skyline-logo" id="scroll-scale" src="https://raw.githubusercontent.com/npisar/SI339-CPD4/refs/heads/main/skyline-logo/skyline-logo-light.png" alt="Ann Arbor Skyline Eagles Logo">
-        <details class="color-options-section" id="scroll-scale">
-            <summary class="color-options-menu">Color Options<i class="fa-solid fa-bars"></i></summary>
-            <button class="color-scheme-toggle" onclick="colorSchemeToggle()">Color Scheme Toggle</button>
-            <button class="high-contrast-mode-toggle" onclick="highContrastModeToggle()">High Contrast Mode<i class="fa-solid fa-circle-half-stroke"></i></button>
+        <details class="color-options-section" id="scroll-scale" tabindex="2">
+            <summary class="color-options-menu">Color Options<i class="fa-solid fa-bars" tabindex="3"></i></summary>
+            <button class="color-scheme-toggle" onclick="colorSchemeToggle()" tabindex="4">Color Scheme Toggle</button>
+            <button class="high-contrast-mode-toggle" onclick="highContrastModeToggle()" tabindex="5">High Contrast Mode<i class="fa-solid fa-circle-half-stroke"></i></button>
         </details>
 
         <script>
@@ -116,6 +116,8 @@
         <section class="meet-results">
             <details class="season-box">
                 <summary><i class="fa-solid fa-person fa-lg" data-fa-transform="left-30"></i>Top 10 Men's Times</summary>
+                {% set tab_count = 1 %}
+
                 <table>
                     <tr>
                         <th>Rank</th>
@@ -136,47 +138,50 @@
                             {% endif %}
                         </td>
                         <td>
-                            <a href="athletes_html/mens_team/athlete-{{ mens_top10[index]['Name'].replace(' ', '-').lower() }}.html">
+                            <a href="athletes_html/mens_team/athlete-{{ mens_top10[index]['Name'].replace(' ', '-').lower() }}.html" tabindex="{{ tab_count }}">
                                 {{ mens_top10[index]['Name'] }}
                             </a>
                         </td>
                         <td>{{ mens_top10[index]['Time'] }}</td>
                     </tr>
+                    {% set tab_count = tab_count + 1 %}
                     {% endfor %}
                 </table>
-            </details>
-        
-            <details class="season-box">
-                <summary><i class="fa-solid fa-person-dress fa-lg" data-fa-transform="left-30"></i>Top 10 Women's Times</summary>
-                <table>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Name</th>
-                        <th>Time</th>
-                    </tr>
-                    {% for index in range(mens_top10 | length) %}
-                    <tr>
-                        <td>
-                            {% if index == 0 %}
-                                <i class="fa-solid fa-medal fa-lg" id="womens_first" aria-label="First place medal"></i>
-                            {% elif index == 1 %}
-                                <i class="fa-solid fa-medal fa-lg" id="womens_second" aria-label="Second place medal"></i>
-                            {% elif index == 2 %}
-                                <i class="fa-solid fa-medal fa-lg" id="womens_third" aria-label="Third place medal"></i>
-                            {% else %}
-                                {{ index + 1 }}
-                            {% endif %}
-                        </td>
-                        <td>
-                            <a href="athletes_html/womens_team/athlete-{{ womens_top10[index]['Name'].replace(' ', '-').lower() }}.html">
-                                {{ womens_top10[index]['Name'] }}
-                            </a>
-                        </td>
-                        <td>{{ womens_top10[index]['Time'] }}</td>
-                    </tr>
-                    {% endfor %}
-                </table>
-            </details>
+                
+                </details>
+                
+                <details class="season-box">
+                    <summary><i class="fa-solid fa-person-dress fa-lg" data-fa-transform="left-30"></i>Top 10 Women's Times</summary>
+                    <table>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Time</th>
+                        </tr>
+                        {% for index in range(womens_top10 | length) %}
+                        <tr>
+                            <td>
+                                {% if index == 0 %}
+                                    <i class="fa-solid fa-medal fa-lg" id="womens_first" aria-label="First place medal"></i>
+                                {% elif index == 1 %}
+                                    <i class="fa-solid fa-medal fa-lg" id="womens_second" aria-label="Second place medal"></i>
+                                {% elif index == 2 %}
+                                    <i class="fa-solid fa-medal fa-lg" id="womens_third" aria-label="Third place medal"></i>
+                                {% else %}
+                                    {{ index + 1 }}
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a href="athletes_html/womens_team/athlete-{{ womens_top10[index]['Name'].replace(' ', '-').lower() }}.html" tabindex="{{ tab_count }}">
+                                    {{ womens_top10[index]['Name'] }}
+                                </a>
+                            </td>
+                            <td>{{ womens_top10[index]['Time'] }}</td>
+                        </tr>
+                        {% set tab_count = tab_count + 1 %}
+                        {% endfor %}
+                    </table>
+                </details>
         </section>
     </main>
   

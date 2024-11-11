@@ -29,12 +29,12 @@
     </head>
     <body>
         <header>
-            <a href="../../index.html" class="nav-home-button" id="scroll-scale"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="../../index.html" class="nav-home-button" id="scroll-scale" tabindex="1"><i class="fa-solid fa-house"></i> Home</a>
             <img class="skyline-logo" id="scroll-scale" src="https://raw.githubusercontent.com/npisar/SI339-CPD4/refs/heads/main/skyline-logo/skyline-logo-light.png" alt="Ann Arbor Skyline Eagles Logo">
-            <details class="color-options-section" id="scroll-scale">
-                <summary class="color-options-menu">Color Options<i class="fa-solid fa-bars"></i></summary>
-                <button class="color-scheme-toggle" onclick="colorSchemeToggle()">Color Scheme Toggle</button>
-                <button class="high-contrast-mode-toggle" onclick="highContrastModeToggle()">High Contrast Mode<i class="fa-solid fa-circle-half-stroke"></i></button>
+            <details class="color-options-section" id="scroll-scale" tabindex="2">
+                <summary class="color-options-menu">Color Options<i class="fa-solid fa-bars" tabindex="3"></i></summary>
+                <button class="color-scheme-toggle" onclick="colorSchemeToggle()" tabindex="4">Color Scheme Toggle</button>
+                <button class="high-contrast-mode-toggle" onclick="highContrastModeToggle()" tabindex="5">High Contrast Mode<i class="fa-solid fa-circle-half-stroke"></i></button>
             </details>
     
             <script>
@@ -143,7 +143,7 @@
 <th>Date</th>
 <th>Meet</th>
 </tr>
-<tr><td>8 </td><td>14:21.8PR</td><td>Nov 9</td><td>USATF Michigan Association Junior Olympic Championships (11-12)</td></tr>
+<tr tabindex="6"><td>8 </td><td>14:21.8PR</td><td>Nov 9</td><td>USATF Michigan Association Junior Olympic Championships (11-12)</td></tr>
 </table>
 
                 </details>
@@ -157,7 +157,7 @@
                 </details>              
             </section>
         
-            <section class="data-chart">
+            <section class="data-chart" tabindex="155">
                 <canvas id="timeProgressionChart" width="250" height="250"></canvas>
             
                 <script>

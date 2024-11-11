@@ -74,25 +74,17 @@ def extract_races(data):
             continue
     return races
 
-# Generate dynamic HTML table for races
-def races_table_maker(races_list):
-    if not races_list:
-        return "<p>No races available</p>"
-    
-    html_table = "<table>\n<tr>\n<th>Place</th>\n<th>Name</th>\n<th>Time</th>\n<th>Date</th>\n<th>Meet</th>\n</tr>\n"
-    for race in races_list:
-        html_table += f"<tr><td>{race['Place']}</td><td>{race['Name']}</td><td>{race['Time']}</td><td>{race['Date']}</td><td>{race['Meet']}</td></tr>\n"
-    html_table += "</table>\n"
-    return html_table
-
 # Generate dynamic HTML table for 2024 races (excluding the Name column)
 def races_table_maker_without_name(races_list):
     if not races_list:
         return "<p>No races available</p>"
     
     html_table = "<table>\n<tr>\n<th>Place</th>\n<th>Time</th>\n<th>Date</th>\n<th>Meet</th>\n</tr>\n"
+    
+    tab_count = 6
     for race in races_list:
-        html_table += f"<tr><td>{race['Place']}</td><td>{race['Time']}</td><td>{race['Date']}</td><td>{race['Meet']}</td></tr>\n"
+        html_table += f'<tr tabindex="{tab_count}"><td>{race['Place']}</td><td>{race['Time']}</td><td>{race['Date']}</td><td>{race['Meet']}</td></tr>\n'
+        tab_count += 1
     html_table += "</table>\n"
     return html_table
 
@@ -106,8 +98,10 @@ def table_maker(list_dicts):
         html_table += f"<th>{key}</th>\n"
     html_table += "</tr>\n"
     
+    tab_count = 150
     for entry in list_dicts:
-        html_table += "<tr>\n"
+        html_table += f'<tr tabindex="{tab_count}">\n'
+        tab_count += 1
         for value in entry.values():
             html_table += f"<td>{value}</td>\n"
         html_table += "</tr>\n"

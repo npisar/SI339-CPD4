@@ -29,12 +29,12 @@
     </head>
     <body>
         <header>
-            <a href="../../index.html" class="nav-home-button" id="scroll-scale"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="../../index.html" class="nav-home-button" id="scroll-scale" tabindex="1"><i class="fa-solid fa-house"></i> Home</a>
             <img class="skyline-logo" id="scroll-scale" src="https://raw.githubusercontent.com/npisar/SI339-CPD4/refs/heads/main/skyline-logo/skyline-logo-light.png" alt="Ann Arbor Skyline Eagles Logo">
-            <details class="color-options-section" id="scroll-scale">
-                <summary class="color-options-menu">Color Options<i class="fa-solid fa-bars"></i></summary>
-                <button class="color-scheme-toggle" onclick="colorSchemeToggle()">Color Scheme Toggle</button>
-                <button class="high-contrast-mode-toggle" onclick="highContrastModeToggle()">High Contrast Mode<i class="fa-solid fa-circle-half-stroke"></i></button>
+            <details class="color-options-section" id="scroll-scale" tabindex="2">
+                <summary class="color-options-menu">Color Options<i class="fa-solid fa-bars" tabindex="3"></i></summary>
+                <button class="color-scheme-toggle" onclick="colorSchemeToggle()" tabindex="4">Color Scheme Toggle</button>
+                <button class="high-contrast-mode-toggle" onclick="highContrastModeToggle()" tabindex="5">High Contrast Mode<i class="fa-solid fa-circle-half-stroke"></i></button>
             </details>
     
             <script>
@@ -143,17 +143,17 @@
 <th>Date</th>
 <th>Meet</th>
 </tr>
-<tr><td>87 </td><td>21:08.7 SR</td><td>Oct 28</td><td>Post Regional Open Meet (PROM) - Springfiled Oaks</td></tr>
-<tr><td>97 </td><td>19:39.8</td><td>Sep 1</td><td>22 Saline Early Bird</td></tr>
-<tr><td>97 </td><td>20:02.3</td><td>Sep 14</td><td>SEC-HS Jamboree 1 (Red/White Varsity Boys)</td></tr>
-<tr><td>147 </td><td>18:58.6 SR</td><td>Sep 24</td><td>Jackson Invitational - Varsity (Orange Division)</td></tr>
-<tr><td>110 </td><td>21:01.6</td><td>Oct 27</td><td>Brighton PROM</td></tr>
-<tr><td>84 </td><td>21:30.3</td><td>Aug 31</td><td>Mustang Invite (9/10 Boys)</td></tr>
-<tr><td>170 </td><td>19:25.6</td><td>Sep 25</td><td>Jackson Invitational - Varsity (Division 1 Varsity)</td></tr>
-<tr><td>36 </td><td>19:49.6</td><td>Sep 28</td><td>SEC-HS Jamboree 2 (Red) (Reserve Boys)</td></tr>
-<tr><td>132 </td><td>19:18.5</td><td>Oct 9</td><td>2021 Portage Cross Country Invitational (Division 1 Reserve)</td></tr>
-<tr><td>106 </td><td>18:51.1PR</td><td>Oct 16</td><td>37th Annual Gabriel Richard XC Invitational (Varsity Large School)</td></tr>
-<tr><td>85 </td><td>21:52.9</td><td>Oct 29</td><td>Brighton PROM</td></tr>
+<tr tabindex="6"><td>87 </td><td>21:08.7 SR</td><td>Oct 28</td><td>Post Regional Open Meet (PROM) - Springfiled Oaks</td></tr>
+<tr tabindex="7"><td>97 </td><td>19:39.8</td><td>Sep 1</td><td>22 Saline Early Bird</td></tr>
+<tr tabindex="8"><td>97 </td><td>20:02.3</td><td>Sep 14</td><td>SEC-HS Jamboree 1 (Red/White Varsity Boys)</td></tr>
+<tr tabindex="9"><td>147 </td><td>18:58.6 SR</td><td>Sep 24</td><td>Jackson Invitational - Varsity (Orange Division)</td></tr>
+<tr tabindex="10"><td>110 </td><td>21:01.6</td><td>Oct 27</td><td>Brighton PROM</td></tr>
+<tr tabindex="11"><td>84 </td><td>21:30.3</td><td>Aug 31</td><td>Mustang Invite (9/10 Boys)</td></tr>
+<tr tabindex="12"><td>170 </td><td>19:25.6</td><td>Sep 25</td><td>Jackson Invitational - Varsity (Division 1 Varsity)</td></tr>
+<tr tabindex="13"><td>36 </td><td>19:49.6</td><td>Sep 28</td><td>SEC-HS Jamboree 2 (Red) (Reserve Boys)</td></tr>
+<tr tabindex="14"><td>132 </td><td>19:18.5</td><td>Oct 9</td><td>2021 Portage Cross Country Invitational (Division 1 Reserve)</td></tr>
+<tr tabindex="15"><td>106 </td><td>18:51.1PR</td><td>Oct 16</td><td>37th Annual Gabriel Richard XC Invitational (Varsity Large School)</td></tr>
+<tr tabindex="16"><td>85 </td><td>21:52.9</td><td>Oct 29</td><td>Brighton PROM</td></tr>
 </table>
 
                 </details>
@@ -165,17 +165,17 @@
 <th>Grade</th>
 <th>Time</th>
 </tr>
-<tr>
+<tr tabindex="150">
 <td>2021</td>
 <td>9</td>
 <td>18:51.1PR</td>
 </tr>
-<tr>
+<tr tabindex="151">
 <td>2022</td>
 <td>10</td>
 <td>18:58.6</td>
 </tr>
-<tr>
+<tr tabindex="152">
 <td>2023</td>
 <td>11</td>
 <td>21:08.7</td>
@@ -189,7 +189,7 @@
                 </details>              
             </section>
         
-            <section class="data-chart">
+            <section class="data-chart" tabindex="155">
                 <canvas id="timeProgressionChart" width="250" height="250"></canvas>
             
                 <script>

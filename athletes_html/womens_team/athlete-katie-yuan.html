@@ -29,12 +29,12 @@
     </head>
     <body>
         <header>
-            <a href="../../index.html" class="nav-home-button" id="scroll-scale"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="../../index.html" class="nav-home-button" id="scroll-scale" tabindex="1"><i class="fa-solid fa-house"></i> Home</a>
             <img class="skyline-logo" id="scroll-scale" src="https://raw.githubusercontent.com/npisar/SI339-CPD4/refs/heads/main/skyline-logo/skyline-logo-light.png" alt="Ann Arbor Skyline Eagles Logo">
-            <details class="color-options-section" id="scroll-scale">
-                <summary class="color-options-menu">Color Options<i class="fa-solid fa-bars"></i></summary>
-                <button class="color-scheme-toggle" onclick="colorSchemeToggle()">Color Scheme Toggle</button>
-                <button class="high-contrast-mode-toggle" onclick="highContrastModeToggle()">High Contrast Mode<i class="fa-solid fa-circle-half-stroke"></i></button>
+            <details class="color-options-section" id="scroll-scale" tabindex="2">
+                <summary class="color-options-menu">Color Options<i class="fa-solid fa-bars" tabindex="3"></i></summary>
+                <button class="color-scheme-toggle" onclick="colorSchemeToggle()" tabindex="4">Color Scheme Toggle</button>
+                <button class="high-contrast-mode-toggle" onclick="highContrastModeToggle()" tabindex="5">High Contrast Mode<i class="fa-solid fa-circle-half-stroke"></i></button>
             </details>
     
             <script>
@@ -143,17 +143,17 @@
 <th>Date</th>
 <th>Meet</th>
 </tr>
-<tr><td>12 </td><td>22:39.1 SR</td><td>Sep 7</td><td>Bret Clements Bath Invitational (J.V.)</td></tr>
-<tr><td>170 </td><td>24:27.1</td><td>Aug 18</td><td>Lamplighter Invite (Girls Varsity - Flight Two)</td></tr>
-<tr><td>31 </td><td>23:28.1</td><td>Aug 31</td><td>Early Bird Open (Open Women's 5K)</td></tr>
-<tr><td>20 </td><td>23:34.1</td><td>Sep 13</td><td>SEC-HS Jamboree 1 (All Division Reserve GIRLS)</td></tr>
-<tr><td>204 </td><td>23:09.3</td><td>Sep 23</td><td>Jackson Invitational - Varsity (Orange Division (1000 + enrolment))</td></tr>
-<tr><td>23 </td><td>22:43.0</td><td>Sep 27</td><td>SEC Jamboree 2 (Red) (Reserve Wave 1 (<25:30))</td></tr>
-<tr><td>70 </td><td>22:30.9</td><td>Oct 7</td><td>2023 Portage XC Invitational (Division 1 Reserve)</td></tr>
-<tr><td>73 </td><td>23:07.5</td><td>Oct 14</td><td>39th Fr Gabriel Richard Cross Country Invite (Varsity Large School)</td></tr>
-<tr><td>35 </td><td>22:28.2</td><td>Oct 19</td><td>SEC HS Championship (Varsity RED Division)</td></tr>
-<tr><td>59 </td><td>22:27.0</td><td>Oct 28</td><td>MHSAA LP Region 04-1 @ Holly</td></tr>
-<tr><td>243 </td><td>21:43.1PR</td><td>Nov 4</td><td>MHSAA LP Division 1 Finals</td></tr>
+<tr tabindex="6"><td>12 </td><td>22:39.1 SR</td><td>Sep 7</td><td>Bret Clements Bath Invitational (J.V.)</td></tr>
+<tr tabindex="7"><td>170 </td><td>24:27.1</td><td>Aug 18</td><td>Lamplighter Invite (Girls Varsity - Flight Two)</td></tr>
+<tr tabindex="8"><td>31 </td><td>23:28.1</td><td>Aug 31</td><td>Early Bird Open (Open Women's 5K)</td></tr>
+<tr tabindex="9"><td>20 </td><td>23:34.1</td><td>Sep 13</td><td>SEC-HS Jamboree 1 (All Division Reserve GIRLS)</td></tr>
+<tr tabindex="10"><td>204 </td><td>23:09.3</td><td>Sep 23</td><td>Jackson Invitational - Varsity (Orange Division (1000 + enrolment))</td></tr>
+<tr tabindex="11"><td>23 </td><td>22:43.0</td><td>Sep 27</td><td>SEC Jamboree 2 (Red) (Reserve Wave 1 (<25:30))</td></tr>
+<tr tabindex="12"><td>70 </td><td>22:30.9</td><td>Oct 7</td><td>2023 Portage XC Invitational (Division 1 Reserve)</td></tr>
+<tr tabindex="13"><td>73 </td><td>23:07.5</td><td>Oct 14</td><td>39th Fr Gabriel Richard Cross Country Invite (Varsity Large School)</td></tr>
+<tr tabindex="14"><td>35 </td><td>22:28.2</td><td>Oct 19</td><td>SEC HS Championship (Varsity RED Division)</td></tr>
+<tr tabindex="15"><td>59 </td><td>22:27.0</td><td>Oct 28</td><td>MHSAA LP Region 04-1 @ Holly</td></tr>
+<tr tabindex="16"><td>243 </td><td>21:43.1PR</td><td>Nov 4</td><td>MHSAA LP Division 1 Finals</td></tr>
 </table>
 
                 </details>
@@ -165,12 +165,12 @@
 <th>Grade</th>
 <th>Time</th>
 </tr>
-<tr>
+<tr tabindex="150">
 <td>2023</td>
 <td>9</td>
 <td>21:43.1PR</td>
 </tr>
-<tr>
+<tr tabindex="151">
 <td>2024</td>
 <td>10</td>
 <td>22:39.1</td>
@@ -184,7 +184,7 @@
                 </details>              
             </section>
         
-            <section class="data-chart">
+            <section class="data-chart" tabindex="155">
                 <canvas id="timeProgressionChart" width="250" height="250"></canvas>
             
                 <script>
