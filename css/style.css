@@ -675,7 +675,7 @@ details {
     }
 
     .data-chart {
-        width: 80%;
+        width: 70%;
     }
 
     .skyline-logo {
@@ -720,7 +720,7 @@ details {
     }
     
     .data-chart {
-        width: 75%;
+        width: 50%;
     }
 
     .skyline-logo {
@@ -767,6 +767,10 @@ details {
         margin-top: 20px;
         margin-bottom: 15px;
         font-size: 1.2em;
+    }
+
+    .data-chart {
+        width: 40%;
     }
     
 }
