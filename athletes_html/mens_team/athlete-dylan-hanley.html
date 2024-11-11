@@ -29,9 +29,9 @@
     </head>
     <body>
         <header>
-            <a href="../../index.html" class="nav-home-button"><i class="fa-solid fa-house"></i> Home</a>
-            <img class="skyline-logo" src="https://raw.githubusercontent.com/npisar/SI339-CPD4/refs/heads/main/skyline-logo/skyline-logo-light.png" alt="Ann Arbor Skyline Eagles Logo">
-            <details class="color-options-section">
+            <a href="../../index.html" class="nav-home-button" id="scroll-scale"><i class="fa-solid fa-house"></i> Home</a>
+            <img class="skyline-logo" id="scroll-scale" src="https://raw.githubusercontent.com/npisar/SI339-CPD4/refs/heads/main/skyline-logo/skyline-logo-light.png" alt="Ann Arbor Skyline Eagles Logo">
+            <details class="color-options-section" id="scroll-scale">
                 <summary class="color-options-menu">Color Options<i class="fa-solid fa-bars"></i></summary>
                 <button class="color-scheme-toggle" onclick="colorSchemeToggle()">Color Scheme Toggle</button>
                 <button class="high-contrast-mode-toggle" onclick="highContrastModeToggle()">High Contrast Mode<i class="fa-solid fa-circle-half-stroke"></i></button>
@@ -398,6 +398,26 @@
                 'imageFadeDuration': 0,
             })
         }
+    </script>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            const contentElements = header.children;  // Get all children of the header
+            const maxScroll = 200; // Adjust for scroll sensitivity
+            const scaleY = Math.max(1 - window.scrollY / maxScroll, 0.50);
+            const scaleX = Math.max(1 - window.scrollY / maxScroll, 0.50);
+
+            // Apply a scale only to the height of the header itself
+            header.style.transform = `scaleY(${scaleY})`;
+            header.style.transformOrigin = 'top'; // Shrinks from the top
+            
+            // Scale each child element's height proportionally to fit within the header
+            for (let element of contentElements) {
+                element.style.transform = `scaleX(${scaleY})`;
+                element.style.transformOrigin = 'top';
+            }
+        });
     </script>
 
     </body>

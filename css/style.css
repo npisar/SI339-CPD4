@@ -76,7 +76,7 @@ header {
     position: sticky;
     top: 0;
     background-color: var(--secondary-color);
-    box-shadow: 0 2px 4px var(--15);
+    box-shadow: 0 16px 16px rgba(0,0,0, 0.35);
     padding: 15px;
     display: flex;
     justify-content: space-between;
@@ -305,7 +305,7 @@ details summary::-webkit-details-marker {
 .data .all-races, .season-records, .season-notes, .season-box {
     background-color: var(--07);
     padding: 0;
-    box-shadow: 0 2px 4px var(--15);
+    box-shadow: 0 4px 4px var(--15);
     border-radius: 10px;
     padding-bottom: 1em;
 }
@@ -324,14 +324,15 @@ details summary::-webkit-details-marker {
 ############################################ */
 /* header items */
 header {
-    position: sticky;
-    top: 0;
     background-color: var(--secondary-color);
-    box-shadow: 0 2px 4px var(--15);
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+    /* shrinking header code */
+    transform-origin: top center;
+    transition: height 0.2s ease, transform 0.2s ease;
+}
+
+#scroll-scale {
+    transition: height 0.2s ease, width 0.2s ease, transform 0.2s ease;
 }
 
 .color-options-section {
@@ -404,14 +405,13 @@ body {
     align-items: center;
     gap: 20px;
     padding: 20px 0px;
-    border-bottom: 1px solid var(--07);
 }
 
 .profile-picture {
     background-color: var(--09);
     border-radius: 50%;
     overflow: hidden;
-    box-shadow: 0 2px 4px var(--15);
+    box-shadow: 0 0 16px var(--15);
 }
 
 .profile-picture img {
@@ -769,8 +769,4 @@ details {
         font-size: 1.2em;
     }
     
-
-    .skyline-logo {
-        width: 300px;
-    }
 }
